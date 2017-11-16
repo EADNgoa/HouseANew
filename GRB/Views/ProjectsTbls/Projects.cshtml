@@ -1,0 +1,65 @@
+﻿@model GRB.Models.ProjectsTbl
+
+@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Projects</h2>
+
+<div class="row">
+    <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Menu 1</a></li>
+            <li><a href="#">Menu 2</a></li>
+            <li><a href="#">Menu 3</a></li>
+        </ul>
+    </div>
+    <div class="col-md-9">        
+        
+    </div>
+
+    </div>
+    <div>
+        <h4>Projects</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Proj_Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Proj_Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Proj_Desc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Proj_Desc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Proj_Pic)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Proj_Pic)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Proj_Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Proj_Status)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Proj_Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>

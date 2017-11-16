@@ -26,18 +26,22 @@ namespace GRB.Controllers
             int pageSize = 30;
             int pageNumber = (page ?? 1);
             
-            return View(inmatesTbls.ToPagedList(pageNumber, pageSize));
+            return View(inmatesTbls.OrderBy(i=> i.In_Name).ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult InmatesList(int? page, int ProjId)
+        public ActionResult InmatesList(int? page, int ProjId=1)
         {
             var inmatesTbls = db.InmatesTbls.Include(i => i.ProjectsTbl);
-                       
+
+            ViewBag.Projs = db.ProjectsTbls.OrderBy(p => p.Proj_Status);//.Select(p => new ProjectsTbl { Proj_Id = p.Proj_Id, Proj_Title = p.Proj_Title });
+            var pro = db.ProjectsTbls.FirstOrDefault(p => p.Proj_Id == ProjId);
+            ViewBag.ProjId = pro;
+
             inmatesTbls = db.InmatesTbls.Where(i => i.Proj_Id == ProjId);
             int pageSize = 30;
             int pageNumber = (page ?? 1);
 
-            return View(inmatesTbls.ToPagedList(pageNumber, pageSize));
+            return View(inmatesTbls.OrderBy(i => i.In_Name).ToPagedList(pageNumber, pageSize));
         }
 
         // GET: InmatesTbls/Details/5

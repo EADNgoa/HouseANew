@@ -8,10 +8,10 @@ using System.Web;
 //using GRB.Models;for dynamic roles
 //using Microsoft.AspNet.Identity.EntityFramework;for dynamic roles
 
-namespace GRB
+namespace GRB.Models
 {
     [MetadataType(typeof(InmatesMetadata))]
-    public partial class InmantesTbl
+    public partial class InmatesTbl
     {
     }
 

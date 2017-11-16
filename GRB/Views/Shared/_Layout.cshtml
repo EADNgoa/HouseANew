@@ -87,13 +87,14 @@
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                             <li>@Html.ActionLink("Profiles", "Index", "ProfileTbls")</li>
+                            <li>@Html.ActionLink("Projects", "InmatesList", "InmatesTbls")</li>
                             <li>@Html.ActionLink("Staff Info", "Index", "StaffTbls")</li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </div>
-        <a class="topright" id="emblem" href="/"><img src="~/Uploads/Pictures/goa-logo.jpg" style="float:right; width:100px; height:100px; position:relative" alt="Goa Rehab"> </a>
+        @*<a class="topright" id="emblem" href="/"><img src="~/Uploads/Pictures/goa-logo.jpg" style="float:right; width:100px; height:100px; position:relative" alt="Goa Rehab"> </a>*@
     </div>
     <div class="container body-content" style="background-color:lightyellow">
         @RenderBody()

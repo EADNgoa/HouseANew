@@ -16,7 +16,7 @@ namespace GRB.Controllers
 
         // GET: ProjectsTbls
         public ActionResult Index()
-        {
+        {            
             return View(db.ProjectsTbls.ToList());
         }
 

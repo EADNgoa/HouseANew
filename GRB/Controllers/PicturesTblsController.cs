@@ -6,10 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using GoaRehabWeb.Models;
+using GRB.Models;
 using System.IO;
 
-namespace GoaRehabWeb.Controllers
+namespace GRB.Controllers
 {
     public class PicturesTblsController : Controller
     {

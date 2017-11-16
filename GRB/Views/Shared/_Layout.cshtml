@@ -6,28 +6,94 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="~/Scripts/jquery.bootstrap.newsbox.js"></script>
+    <script src="~/Scripts/jquery.bootstrap.newsbox.min.js"></script>
+    <style>
+        #slide {
+            width: 300%;
+            animation: both 40s infinite;
+            animation-timing-function: linear;
+            background-color: black;
+        }
+
+            #slide a:hover {
+                text-decoration: underline;
+            }
+
+            #slide:hover {
+                animation-play-state: paused;
+            }
+
+        .blink {
+            background-color: black;
+            animation: blink 0.85s linear infinite;
+        }
+
+            .blink:hover {
+                animation-play-state: paused;
+            }
+
+        .topright {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+        }
+    </style>
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body style="background-image:url(/Uploads/Pictures/clearLinebig.jpg)">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Goa Rehabilitation Board", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+        </div>*@
+    <div class="navbar-wrapper">
+        <div class="container-fluid" style="margin-right: 100px;margin-left: 10px;">
+            <nav class="navbar navbar-inverse" style="border-radius:50px">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Goa Rehabilitation Board</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Profiles", "Index", "ProfileTbls")</li>
+                            <li>@Html.ActionLink("Staff Info", "Index", "StaffTbls")</li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
+        <a class="topright" id="emblem" href="/"><img src="~/Uploads/Pictures/goa-logo.jpg" style="float:right; width:100px; height:100px; position:relative" alt="Goa Rehab"> </a>
     </div>
     <div class="container body-content">
         @RenderBody()

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using GRB.Models;
+using PagedList;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using GRB.Models;
 
 namespace GRB.Controllers
 {
@@ -15,10 +13,31 @@ namespace GRB.Controllers
         private GoaRehabEntities db = new GoaRehabEntities();
 
         // GET: InmatesTbls
-        public ActionResult Index()
+        public ActionResult Index(int? page, string PropName)
         {
             var inmatesTbls = db.InmatesTbls.Include(i => i.ProjectsTbl);
-            return View(inmatesTbls.ToList());
+
+            if (PropName?.Length > 0)
+            {
+                inmatesTbls = db.InmatesTbls.Where(i => i.In_Name.Contains(PropName));
+                page = 1;
+            }
+
+            int pageSize = 30;
+            int pageNumber = (page ?? 1);
+            
+            return View(inmatesTbls.ToPagedList(pageNumber, pageSize));
+        }
+
+        public ActionResult InmatesList(int? page, int ProjId)
+        {
+            var inmatesTbls = db.InmatesTbls.Include(i => i.ProjectsTbl);
+                       
+            inmatesTbls = db.InmatesTbls.Where(i => i.Proj_Id == ProjId);
+            int pageSize = 30;
+            int pageNumber = (page ?? 1);
+
+            return View(inmatesTbls.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: InmatesTbls/Details/5

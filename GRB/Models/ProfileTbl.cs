@@ -16,7 +16,7 @@ namespace GRB.Models
     {
         public int P_Id { get; set; }
         public string P_Name { get; set; }
-        public byte[] P_Pic { get; set; }
+        public string P_Pic { get; set; }
         public string P_Desc { get; set; }
     }
 }

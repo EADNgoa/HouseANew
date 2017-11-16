@@ -4,40 +4,28 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="GoaRehabModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="AnnouncementsTbl">
-          <Key>
-            <PropertyRef Name="A_Id" />
-          </Key>
-          <Property Name="A_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="A_Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="A_Desc" Type="nvarchar(max)" />
-          <Property Name="A_Pic" Type="image" />
-          <Property Name="A_Date" Type="date" />
-        </EntityType>
+    <Schema Namespace="GoaRehabModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="GoaRehabTbl">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nchar" MaxLength="10" />
-          <Property Name="Desc" Type="nvarchar(max)" />
-          <Property Name="Addr" Type="nvarchar(max)" />
-          <Property Name="Mission" Type="nvarchar" MaxLength="50" />
-          <Property Name="Vision" Type="nvarchar" MaxLength="50" />
-          <Property Name="Location" Type="nvarchar" MaxLength="50" />
-          <Property Name="Ph_No" Type="int" />
-          <Property Name="File_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Desc" Type="varchar(max)" />
+          <Property Name="Addr" Type="varchar" MaxLength="350" />
+          <Property Name="Mission" Type="varchar" MaxLength="350" />
+          <Property Name="Vision" Type="varchar" MaxLength="350" />
+          <Property Name="Emails" Type="varchar" MaxLength="150" />
+          <Property Name="Ph_No" Type="varchar" MaxLength="50" />
+          <Property Name="Statutes" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="InmatesTbl">
           <Key>
             <PropertyRef Name="In_Id" />
           </Key>
           <Property Name="In_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="In_Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="In_Addr" Type="nvarchar(max)" />
-          <Property Name="In_MNo" Type="int" />
-          <Property Name="Gender" Type="nchar" MaxLength="10" />
+          <Property Name="In_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="7" />
           <Property Name="Proj_Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="NewsTbl">
@@ -45,9 +33,9 @@
             <PropertyRef Name="N_Id" />
           </Key>
           <Property Name="N_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="N_Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="N_Desc" Type="nvarchar(max)" />
-          <Property Name="N_Pic" Type="image" />
+          <Property Name="N_Title" Type="varchar" MaxLength="50" />
+          <Property Name="N_Desc" Type="varchar(max)" />
+          <Property Name="N_Pic" Type="varchar" MaxLength="100" />
           <Property Name="N_Date" Type="date" />
         </EntityType>
         <EntityType Name="PicturesTbl">
@@ -55,35 +43,35 @@
             <PropertyRef Name="Pic_Id" />
           </Key>
           <Property Name="Pic_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Pic_Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Pic_Path" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pic_Name" Type="varchar" MaxLength="150" />
+          <Property Name="Pic_Path" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ProfileTbl">
           <Key>
             <PropertyRef Name="P_Id" />
           </Key>
           <Property Name="P_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="P_Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="P_Pic" Type="image" />
-          <Property Name="P_Desc" Type="nvarchar(max)" />
+          <Property Name="P_Name" Type="varchar" MaxLength="100" />
+          <Property Name="P_Pic" Type="varchar" MaxLength="50" />
+          <Property Name="P_Desc" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="ProjectsTbl">
           <Key>
             <PropertyRef Name="Proj_Id" />
           </Key>
           <Property Name="Proj_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Proj_Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Proj_Desc" Type="nvarchar(max)" />
-          <Property Name="Proj_Pic" Type="image" />
-          <Property Name="Proj_Status" Type="nchar" MaxLength="10" />
+          <Property Name="Proj_Title" Type="varchar" MaxLength="100" />
+          <Property Name="Proj_Desc" Type="varchar(max)" />
+          <Property Name="Proj_Pic" Type="varchar" MaxLength="50" />
+          <Property Name="Proj_Status" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="StaffTbl">
           <Key>
             <PropertyRef Name="S_Id" />
           </Key>
           <Property Name="S_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="S_Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="S_Responsibilities" Type="nvarchar(max)" />
+          <Property Name="S_Name" Type="varchar" MaxLength="50" />
+          <Property Name="S_Responsibilities" Type="varchar(max)" />
         </EntityType>
         <Association Name="FK_InmatesTbl_ToProjectsTbl">
           <End Role="ProjectsTbl" Type="Self.ProjectsTbl" Multiplicity="1" />
@@ -98,7 +86,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="GoaRehabModelStoreContainer">
-          <EntitySet Name="AnnouncementsTbl" EntityType="Self.AnnouncementsTbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GoaRehabTbl" EntityType="Self.GoaRehabTbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InmatesTbl" EntityType="Self.InmatesTbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NewsTbl" EntityType="Self.NewsTbl" Schema="dbo" store:Type="Tables" />
@@ -111,55 +98,55 @@
             <End Role="InmatesTbl" EntitySet="InmatesTbl" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GoaRehabModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AnnouncementsTbl">
-          <Key>
-            <PropertyRef Name="A_Id" />
-          </Key>
-          <Property Name="A_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="A_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="A_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="A_Pic" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="A_Date" Type="DateTime" Precision="0" />
-        </EntityType>
+        <EntityContainer Name="GoaRehabEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GoaRehabTbls" EntityType="GoaRehabModel.GoaRehabTbl" />
+          <EntitySet Name="InmatesTbls" EntityType="GoaRehabModel.InmatesTbl" />
+          <EntitySet Name="NewsTbls" EntityType="GoaRehabModel.NewsTbl" />
+          <EntitySet Name="PicturesTbls" EntityType="GoaRehabModel.PicturesTbl" />
+          <EntitySet Name="ProfileTbls" EntityType="GoaRehabModel.ProfileTbl" />
+          <EntitySet Name="ProjectsTbls" EntityType="GoaRehabModel.ProjectsTbl" />
+          <EntitySet Name="StaffTbls" EntityType="GoaRehabModel.StaffTbl" />
+          <AssociationSet Name="FK_InmatesTbl_ToProjectsTbl" Association="GoaRehabModel.FK_InmatesTbl_ToProjectsTbl">
+            <End Role="ProjectsTbl" EntitySet="ProjectsTbls" />
+            <End Role="InmatesTbl" EntitySet="InmatesTbls" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="GoaRehabTbl">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Addr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Mission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Vision" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Ph_No" Type="Int32" />
-          <Property Name="File_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Addr" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="Mission" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="Vision" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="Emails" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Ph_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Statutes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="InmatesTbl">
           <Key>
             <PropertyRef Name="In_Id" />
           </Key>
           <Property Name="In_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="In_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="In_Addr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="In_MNo" Type="Int32" />
-          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="In_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
           <Property Name="Proj_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ProjectsTbl" Relationship="Self.FK_InmatesTbl_ToProjectsTbl" FromRole="InmatesTbl" ToRole="ProjectsTbl" />
+          <NavigationProperty Name="ProjectsTbl" Relationship="GoaRehabModel.FK_InmatesTbl_ToProjectsTbl" FromRole="InmatesTbl" ToRole="ProjectsTbl" />
         </EntityType>
         <EntityType Name="NewsTbl">
           <Key>
             <PropertyRef Name="N_Id" />
           </Key>
           <Property Name="N_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="N_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="N_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="N_Pic" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="N_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="N_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="N_Pic" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="N_Date" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="PicturesTbl">
@@ -167,40 +154,40 @@
             <PropertyRef Name="Pic_Id" />
           </Key>
           <Property Name="Pic_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Pic_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Pic_Path" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pic_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Pic_Path" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ProfileTbl">
           <Key>
             <PropertyRef Name="P_Id" />
           </Key>
           <Property Name="P_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="P_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="P_Pic" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="P_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="P_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="P_Pic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ProjectsTbl">
           <Key>
             <PropertyRef Name="Proj_Id" />
           </Key>
           <Property Name="Proj_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Proj_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Proj_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Proj_Pic" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Proj_Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="InmatesTbls" Relationship="Self.FK_InmatesTbl_ToProjectsTbl" FromRole="ProjectsTbl" ToRole="InmatesTbl" />
+          <Property Name="Proj_Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Proj_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Proj_Pic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Proj_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InmatesTbls" Relationship="GoaRehabModel.FK_InmatesTbl_ToProjectsTbl" FromRole="ProjectsTbl" ToRole="InmatesTbl" />
         </EntityType>
         <EntityType Name="StaffTbl">
           <Key>
             <PropertyRef Name="S_Id" />
           </Key>
           <Property Name="S_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="S_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="S_Responsibilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="S_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_Responsibilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_InmatesTbl_ToProjectsTbl">
-          <End Role="ProjectsTbl" Type="Self.ProjectsTbl" Multiplicity="1" />
-          <End Role="InmatesTbl" Type="Self.InmatesTbl" Multiplicity="*" />
+          <End Type="GoaRehabModel.ProjectsTbl" Role="ProjectsTbl" Multiplicity="1" />
+          <End Type="GoaRehabModel.InmatesTbl" Role="InmatesTbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProjectsTbl">
               <PropertyRef Name="Proj_Id" />
@@ -210,111 +197,84 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GoaRehabEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AnnouncementsTbls" EntityType="Self.AnnouncementsTbl" />
-          <EntitySet Name="GoaRehabTbls" EntityType="Self.GoaRehabTbl" />
-          <EntitySet Name="InmatesTbls" EntityType="Self.InmatesTbl" />
-          <EntitySet Name="NewsTbls" EntityType="Self.NewsTbl" />
-          <EntitySet Name="PicturesTbls" EntityType="Self.PicturesTbl" />
-          <EntitySet Name="ProfileTbls" EntityType="Self.ProfileTbl" />
-          <EntitySet Name="ProjectsTbls" EntityType="Self.ProjectsTbl" />
-          <EntitySet Name="StaffTbls" EntityType="Self.StaffTbl" />
-          <AssociationSet Name="FK_InmatesTbl_ToProjectsTbl" Association="Self.FK_InmatesTbl_ToProjectsTbl">
-            <End Role="ProjectsTbl" EntitySet="ProjectsTbls" />
-            <End Role="InmatesTbl" EntitySet="InmatesTbls" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="GoaRehabModelStoreContainer" CdmEntityContainer="GoaRehabEntities">
-          <EntitySetMapping Name="AnnouncementsTbls">
-            <EntityTypeMapping TypeName="GoaRehabModel.AnnouncementsTbl">
-              <MappingFragment StoreEntitySet="AnnouncementsTbl">
-                <ScalarProperty Name="A_Id" ColumnName="A_Id" />
-                <ScalarProperty Name="A_Title" ColumnName="A_Title" />
-                <ScalarProperty Name="A_Desc" ColumnName="A_Desc" />
-                <ScalarProperty Name="A_Pic" ColumnName="A_Pic" />
-                <ScalarProperty Name="A_Date" ColumnName="A_Date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="GoaRehabTbls">
             <EntityTypeMapping TypeName="GoaRehabModel.GoaRehabTbl">
               <MappingFragment StoreEntitySet="GoaRehabTbl">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Desc" ColumnName="Desc" />
-                <ScalarProperty Name="Addr" ColumnName="Addr" />
-                <ScalarProperty Name="Mission" ColumnName="Mission" />
-                <ScalarProperty Name="Vision" ColumnName="Vision" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Statutes" ColumnName="Statutes" />
                 <ScalarProperty Name="Ph_No" ColumnName="Ph_No" />
-                <ScalarProperty Name="File_Name" ColumnName="File_Name" />
+                <ScalarProperty Name="Emails" ColumnName="Emails" />
+                <ScalarProperty Name="Vision" ColumnName="Vision" />
+                <ScalarProperty Name="Mission" ColumnName="Mission" />
+                <ScalarProperty Name="Addr" ColumnName="Addr" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="InmatesTbls">
             <EntityTypeMapping TypeName="GoaRehabModel.InmatesTbl">
               <MappingFragment StoreEntitySet="InmatesTbl">
-                <ScalarProperty Name="In_Id" ColumnName="In_Id" />
-                <ScalarProperty Name="In_Name" ColumnName="In_Name" />
-                <ScalarProperty Name="In_Addr" ColumnName="In_Addr" />
-                <ScalarProperty Name="In_MNo" ColumnName="In_MNo" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Proj_Id" ColumnName="Proj_Id" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="In_Name" ColumnName="In_Name" />
+                <ScalarProperty Name="In_Id" ColumnName="In_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NewsTbls">
             <EntityTypeMapping TypeName="GoaRehabModel.NewsTbl">
               <MappingFragment StoreEntitySet="NewsTbl">
-                <ScalarProperty Name="N_Id" ColumnName="N_Id" />
-                <ScalarProperty Name="N_Title" ColumnName="N_Title" />
-                <ScalarProperty Name="N_Desc" ColumnName="N_Desc" />
-                <ScalarProperty Name="N_Pic" ColumnName="N_Pic" />
                 <ScalarProperty Name="N_Date" ColumnName="N_Date" />
+                <ScalarProperty Name="N_Pic" ColumnName="N_Pic" />
+                <ScalarProperty Name="N_Desc" ColumnName="N_Desc" />
+                <ScalarProperty Name="N_Title" ColumnName="N_Title" />
+                <ScalarProperty Name="N_Id" ColumnName="N_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PicturesTbls">
             <EntityTypeMapping TypeName="GoaRehabModel.PicturesTbl">
               <MappingFragment StoreEntitySet="PicturesTbl">
-                <ScalarProperty Name="Pic_Id" ColumnName="Pic_Id" />
-                <ScalarProperty Name="Pic_Name" ColumnName="Pic_Name" />
                 <ScalarProperty Name="Pic_Path" ColumnName="Pic_Path" />
+                <ScalarProperty Name="Pic_Name" ColumnName="Pic_Name" />
+                <ScalarProperty Name="Pic_Id" ColumnName="Pic_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProfileTbls">
             <EntityTypeMapping TypeName="GoaRehabModel.ProfileTbl">
               <MappingFragment StoreEntitySet="ProfileTbl">
-                <ScalarProperty Name="P_Id" ColumnName="P_Id" />
-                <ScalarProperty Name="P_Name" ColumnName="P_Name" />
-                <ScalarProperty Name="P_Pic" ColumnName="P_Pic" />
                 <ScalarProperty Name="P_Desc" ColumnName="P_Desc" />
+                <ScalarProperty Name="P_Pic" ColumnName="P_Pic" />
+                <ScalarProperty Name="P_Name" ColumnName="P_Name" />
+                <ScalarProperty Name="P_Id" ColumnName="P_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProjectsTbls">
             <EntityTypeMapping TypeName="GoaRehabModel.ProjectsTbl">
               <MappingFragment StoreEntitySet="ProjectsTbl">
-                <ScalarProperty Name="Proj_Id" ColumnName="Proj_Id" />
-                <ScalarProperty Name="Proj_Title" ColumnName="Proj_Title" />
-                <ScalarProperty Name="Proj_Desc" ColumnName="Proj_Desc" />
-                <ScalarProperty Name="Proj_Pic" ColumnName="Proj_Pic" />
                 <ScalarProperty Name="Proj_Status" ColumnName="Proj_Status" />
+                <ScalarProperty Name="Proj_Pic" ColumnName="Proj_Pic" />
+                <ScalarProperty Name="Proj_Desc" ColumnName="Proj_Desc" />
+                <ScalarProperty Name="Proj_Title" ColumnName="Proj_Title" />
+                <ScalarProperty Name="Proj_Id" ColumnName="Proj_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StaffTbls">
             <EntityTypeMapping TypeName="GoaRehabModel.StaffTbl">
               <MappingFragment StoreEntitySet="StaffTbl">
-                <ScalarProperty Name="S_Id" ColumnName="S_Id" />
-                <ScalarProperty Name="S_Name" ColumnName="S_Name" />
                 <ScalarProperty Name="S_Responsibilities" ColumnName="S_Responsibilities" />
+                <ScalarProperty Name="S_Name" ColumnName="S_Name" />
+                <ScalarProperty Name="S_Id" ColumnName="S_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

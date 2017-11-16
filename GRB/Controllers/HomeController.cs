@@ -13,6 +13,11 @@ namespace GRB.Controllers
             return View();
         }
 
+        public ActionResult InnerCircle()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -20,6 +25,10 @@ namespace GRB.Controllers
             return View();
         }
 
+        public ActionResult ContactTech()
+        {
+            return View();
+        }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

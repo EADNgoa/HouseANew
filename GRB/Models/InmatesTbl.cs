@@ -16,8 +16,6 @@ namespace GRB.Models
     {
         public int In_Id { get; set; }
         public string In_Name { get; set; }
-        public string In_Addr { get; set; }
-        public Nullable<int> In_MNo { get; set; }
         public string Gender { get; set; }
         public int Proj_Id { get; set; }
     

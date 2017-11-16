@@ -20,8 +20,8 @@ namespace GRB.Models
         public string Addr { get; set; }
         public string Mission { get; set; }
         public string Vision { get; set; }
-        public string Location { get; set; }
-        public Nullable<int> Ph_No { get; set; }
-        public string File_Name { get; set; }
+        public string Emails { get; set; }
+        public string Ph_No { get; set; }
+        public string Statutes { get; set; }
     }
 }

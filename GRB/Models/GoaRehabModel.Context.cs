@@ -25,7 +25,6 @@ namespace GRB.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AnnouncementsTbl> AnnouncementsTbls { get; set; }
         public virtual DbSet<GoaRehabTbl> GoaRehabTbls { get; set; }
         public virtual DbSet<InmatesTbl> InmatesTbls { get; set; }
         public virtual DbSet<NewsTbl> NewsTbls { get; set; }

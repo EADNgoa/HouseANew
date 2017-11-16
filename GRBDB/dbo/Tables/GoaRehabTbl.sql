@@ -1,12 +1,12 @@
 ﻿CREATE TABLE [dbo].[GoaRehabTbl]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Title] NCHAR(10) NULL, 
-    [Desc] NVARCHAR(MAX) NULL, 
-    [Addr] NVARCHAR(MAX) NULL, 
-    [Mission] NVARCHAR(50) NULL, 
-    [Vision] NVARCHAR(50) NULL, 
-    [Location] NVARCHAR(50) NULL, 
-    [Ph_No] INT NULL, 
-    [File_Name] NVARCHAR(50) NULL
+    [Title] varcHAR(50) NULL, 
+    [Desc] VARCHAR(MAX) NULL, 
+    [Addr] VARCHAR(350) NULL, 
+    [Mission] VARCHAR(350) NULL, 
+    [Vision] VARCHAR(350) NULL, 
+    [Emails] VARCHAR(150) NULL, 
+    [Ph_No] varchar(50) NULL, 
+    [Statutes] VARCHAR(50) NULL
 )

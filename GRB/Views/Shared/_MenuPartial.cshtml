@@ -1,0 +1,58 @@
+﻿
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            @Html.ActionLink("GRB", "InnerCircle", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Home<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="~/Configs/Edit/1">Carousal</a></li>
+                        <li><a href="~/AllowanceTypes">Mission Vision</a></li>
+                        <li><a href="~/EmpTypes">News</a></li>
+                        <li><a href="~/EDocTypes">Statutes</a></li>
+                        <li><a href="~/Account/GivePrivilage">Grant Privilages</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profiles<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="~/Employees">Profiles</a></li>                                                                        
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Staff<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="~/Loans">Staff</a></li>                        
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Work<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="~/Loans">Projects</a></li>
+                        <li><a href="~/InmatesTbls">Inmates</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">About<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="~/Loans">About GRB</a></li>                        
+                    </ul>
+                </li>
+                <li><a href="~/Home/ContactTech">Tech Support</a></li>                        
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>

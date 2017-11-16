@@ -62,6 +62,12 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -190,7 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AnnouncementsTblsController.cs" />
+    <Compile Include="Controllers\EAController.cs" />
     <Compile Include="Controllers\GoaRehabTblsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InmatesTblsController.cs" />
@@ -204,9 +210,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AnnouncementsTbl.cs">
-      <DependentUpon>GoaRehabModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Extensions.cs" />
     <Compile Include="Models\GoaRehabModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -230,9 +234,11 @@
       <DependentUpon>GoaRehabModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Metadata.cs" />
     <Compile Include="Models\NewsTbl.cs">
       <DependentUpon>GoaRehabModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PartialClasses.cs" />
     <Compile Include="Models\PicturesTbl.cs">
       <DependentUpon>GoaRehabModel.tt</DependentUpon>
     </Compile>
@@ -253,6 +259,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\EA.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -294,6 +302,10 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Custom\BBS.ico" />
+    <Content Include="Custom\EAwell.jpg" />
+    <Content Include="Custom\Emblem.png" />
+    <Content Include="Custom\HeaderRaised.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -371,7 +383,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\InnerCircle.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -394,11 +406,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\AnnouncementsTbls\Create.cshtml" />
-    <Content Include="Views\AnnouncementsTbls\Delete.cshtml" />
-    <Content Include="Views\AnnouncementsTbls\Details.cshtml" />
-    <Content Include="Views\AnnouncementsTbls\Edit.cshtml" />
-    <Content Include="Views\AnnouncementsTbls\Index.cshtml" />
     <Content Include="Views\GoaRehabTbls\Create.cshtml" />
     <Content Include="Views\GoaRehabTbls\Delete.cshtml" />
     <Content Include="Views\GoaRehabTbls\Details.cshtml" />
@@ -406,7 +413,6 @@
     <Content Include="Views\GoaRehabTbls\Index.cshtml" />
     <Content Include="Views\InmatesTbls\Create.cshtml" />
     <Content Include="Views\InmatesTbls\Delete.cshtml" />
-    <Content Include="Views\InmatesTbls\Details.cshtml" />
     <Content Include="Views\InmatesTbls\Edit.cshtml" />
     <Content Include="Views\InmatesTbls\Index.cshtml" />
     <Content Include="Views\NewsTbls\Create.cshtml" />
@@ -434,6 +440,15 @@
     <Content Include="Views\StaffTbls\Details.cshtml" />
     <Content Include="Views\StaffTbls\Edit.cshtml" />
     <Content Include="Views\StaffTbls\Index.cshtml" />
+    <Content Include="Views\Account\GivePrivilage.cshtml" />
+    <Content Include="Views\Home\ContactTech.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Decimal.cshtml" />
+    <Content Include="Views\Shared\pli.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial.cshtml" />
+    <Content Include="Views\Shared\_ReportsLayout.cshtml" />
+    <Content Include="Views\InmatesTbls\InmatesList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

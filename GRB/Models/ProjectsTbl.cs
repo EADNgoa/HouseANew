@@ -23,7 +23,7 @@ namespace GRB.Models
         public int Proj_Id { get; set; }
         public string Proj_Title { get; set; }
         public string Proj_Desc { get; set; }
-        public byte[] Proj_Pic { get; set; }
+        public string Proj_Pic { get; set; }
         public string Proj_Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

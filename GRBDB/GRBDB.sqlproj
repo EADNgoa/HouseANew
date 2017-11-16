@@ -67,7 +67,6 @@
     <Build Include="dbo\Tables\AspNetUserLogins.sql" />
     <Build Include="dbo\Tables\AspNetUserRoles.sql" />
     <Build Include="dbo\Tables\AspNetUsers.sql" />
-    <Build Include="dbo\Tables\AnnouncementsTbl.sql" />
     <Build Include="dbo\Tables\GoaRehabTbl.sql" />
     <Build Include="dbo\Tables\InmatesTbl.sql" />
     <Build Include="dbo\Tables\NewsTbl.sql" />

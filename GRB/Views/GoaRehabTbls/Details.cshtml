@@ -1,0 +1,82 @@
+﻿@model GoaRehabWeb.Models.GoaRehabTbl
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GoaRehabTbl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Addr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Addr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mission)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mission)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ph_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ph_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.File_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.File_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

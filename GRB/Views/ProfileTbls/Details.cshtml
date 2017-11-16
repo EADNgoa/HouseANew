@@ -1,0 +1,42 @@
+﻿@model GoaRehabWeb.Models.ProfileTbl
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProfileTbl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.P_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.P_Pic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_Pic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.P_Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_Desc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.P_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

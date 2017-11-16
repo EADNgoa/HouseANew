@@ -1,0 +1,31 @@
+﻿@model IEnumerable<GoaRehabWeb.Models.StaffTbl>
+
+@{
+    ViewBag.Title = "Staff Information";
+}
+
+<h2>Staff Information</h2>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Responsibilities</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.S_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.S_Responsibilities)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

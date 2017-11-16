@@ -1,0 +1,75 @@
+﻿@model IEnumerable<GoaRehabWeb.Models.GoaRehabTbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Addr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mission)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vision)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ph_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.File_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Addr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mission)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vision)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ph_No)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.File_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

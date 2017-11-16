@@ -1,0 +1,56 @@
+﻿@model GoaRehabWeb.Models.ProjectsTbl
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ProjectsTbl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Proj_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proj_Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proj_Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proj_Desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proj_Pic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proj_Pic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proj_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proj_Status)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

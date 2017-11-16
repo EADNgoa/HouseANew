@@ -1,0 +1,50 @@
+﻿@model GoaRehabWeb.Models.AnnouncementsTbl
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AnnouncementsTbl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.A_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.A_Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.A_Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.A_Desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.A_Pic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.A_Pic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.A_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.A_Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.A_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<GoaRehabWeb.Models.ProjectsTbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Proj_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proj_Desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proj_Pic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proj_Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proj_Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proj_Desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proj_Pic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proj_Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Proj_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Proj_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Proj_Id })
+        </td>
+    </tr>
+}
+
+</table>

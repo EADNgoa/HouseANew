@@ -8,7 +8,7 @@
 }
 
 <h1>Projects</h1>
-<div class="row">
+<div class="row" style="padding:5px;">
     <div class="col-md-3">
         <ul class="nav nav-pills nav-stacked">
             @{ var pro = (IEnumerable<GRB.Models.ProjectsTbl>)ViewBag.Projs;
@@ -32,7 +32,7 @@
     </div>
     <div class="col-md-9">
         <h2>@ThisPro.Proj_Title</h2>
-        <h3>Status: <strong>@ThisPro.Proj_Status</strong></h3>
+        <h4>Status: <strong>@ThisPro.Proj_Status</strong></h4>
         <p>@ThisPro.Proj_Desc</p>
         <hr />
         <h2>List of Beneficiaries</h2>

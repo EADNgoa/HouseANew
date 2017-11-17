@@ -449,8 +449,6 @@
     <Content Include="Views\Shared\_MenuPartial.cshtml" />
     <Content Include="Views\Shared\_ReportsLayout.cshtml" />
     <Content Include="Views\InmatesTbls\InmatesList.cshtml" />
-    <Content Include="Views\InmatesTbls\_BeneficiariesList.cshtml" />
-    <Content Include="Views\ProjectsTbls\Projects.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

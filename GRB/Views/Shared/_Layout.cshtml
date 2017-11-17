@@ -46,6 +46,15 @@
             top: 8px;
             right: 16px;
         }
+        #borderimg {
+            border: 15px solid;
+            border-image-outset: 30px;
+            padding: 15px;
+            -webkit-border-image: url(/Uploads/Pictures/wood.jpg) 30 round; /* Safari 3.1-5 */
+            -o-border-image: url(/Uploads/Pictures/wood.jpg) 30 round; /* Opera 11-12.1 */
+            border-image: url(/Uploads/Pictures/wood.jpg) 30 round;
+        }
+        
     </style>
 </head>
 <body style="background-image:url(/Uploads/Pictures/img-bricks.jpg)">
@@ -79,8 +88,9 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Goa Rehabilitation Board</a>
+                        <a class="navbar-brand" style="color:aliceblue;font-weight:700;" href="#">&nbsp;       GOA REHABILITATION BOARD</a>
                     </div>
+                    <a id="emblem" href="~/"><img src="~/Custom/Emblem.png" height=150px; alt="Goa Rehabiliotation Board" style="left:50px;" /> </a>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -94,16 +104,18 @@
                 </div>
             </nav>
         </div>
+                    <a href="~/"><img src="~/Uploads/Pictures/goa-logo.jpg" height=150px; alt="Government of Goa" class="topright" /> </a>
         @*<a class="topright" id="emblem" href="/"><img src="~/Uploads/Pictures/goa-logo.jpg" style="float:right; width:100px; height:100px; position:relative" alt="Goa Rehab"> </a>*@
     </div>
-    <div class="container body-content" style="background-color:lightyellow">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Developed by EEAA tech</p>
-        </footer>
+        <div id="borderimg" class="container body-content" style="background-color:lightyellow">
+    <div style="border:solid 3px;">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Developed by EEAA tech</p>
+            </footer>
+        </div>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

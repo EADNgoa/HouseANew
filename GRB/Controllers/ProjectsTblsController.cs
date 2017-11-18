@@ -46,12 +46,31 @@ namespace GRB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Proj_Id,Proj_Title,Proj_Desc,Proj_Pic,Proj_Status")] ProjectsTbl projectsTbl)
+        public ActionResult Create([Bind(Include = "Proj_Id,Proj_Title,Proj_Desc,Proj_Status, UploadedFile")] ProjectsImg projectsTbl)
         {
             if (ModelState.IsValid)
             {
-                db.ProjectsTbls.Add(projectsTbl);
-                db.SaveChanges();
+                ProjectsTbl pt = new ProjectsTbl
+                {
+                    Proj_Id=projectsTbl.Proj_Id,
+                    Proj_Desc=projectsTbl.Proj_Desc,
+                    Proj_Status=projectsTbl.Proj_Status,
+                    Proj_Title=projectsTbl.Proj_Title                 
+                };
+
+                if (projectsTbl.UploadedFile !=null)
+                {
+                    string fn = projectsTbl.UploadedFile.FileName.Substring(projectsTbl.UploadedFile.FileName.LastIndexOf('\\') + 1);
+                    Random rd = new Random(DateTime.Today.Day);
+                    fn = rd.Next(300,800) + "_" + fn;
+                    string SavePath = System.IO.Path.Combine(Server.MapPath("~/Uploads/Pictures/Projects"), fn);
+                    projectsTbl.UploadedFile.SaveAs(SavePath);
+                    pt.Proj_Pic = fn;    
+                } 
+
+                    db.ProjectsTbls.Add(pt);
+                    db.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
 
@@ -66,11 +85,21 @@ namespace GRB.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ProjectsTbl projectsTbl = db.ProjectsTbls.Find(id);
+            ViewBag.ExistingImg = projectsTbl.Proj_Pic;
             if (projectsTbl == null)
             {
                 return HttpNotFound();
             }
-            return View(projectsTbl);
+
+            ProjectsImg ViewInfo = new ProjectsImg
+            {
+                Proj_Id = projectsTbl.Proj_Id,
+                Proj_Desc = projectsTbl.Proj_Desc,
+                Proj_Status = projectsTbl.Proj_Status,
+                Proj_Title = projectsTbl.Proj_Title
+            };
+            ViewBag.ExistingFile = projectsTbl.Proj_Pic;
+            return View(ViewInfo);
         }
 
         // POST: ProjectsTbls/Edit/5
@@ -78,11 +107,33 @@ namespace GRB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Proj_Id,Proj_Title,Proj_Desc,Proj_Pic,Proj_Status")] ProjectsTbl projectsTbl)
+        public ActionResult Edit([Bind(Include = "Proj_Id,Proj_Title,Proj_Desc,Proj_Status, UploadedFile")] ProjectsImg projectsTbl, string Proj_Pic)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(projectsTbl).State = EntityState.Modified;
+                string fn = "";
+
+                ProjectsTbl pt = new ProjectsTbl
+                {
+                    Proj_Id = projectsTbl.Proj_Id,
+                    Proj_Desc = projectsTbl.Proj_Desc,
+                    Proj_Status = projectsTbl.Proj_Status,
+                    Proj_Title = projectsTbl.Proj_Title                  
+                };
+
+                if (projectsTbl.UploadedFile != null)
+                {
+                    fn = projectsTbl.UploadedFile.FileName.Substring(projectsTbl.UploadedFile.FileName.LastIndexOf('\\') + 1);
+                    fn = projectsTbl.Proj_Id + "_" + fn;
+                    string SavePath = System.IO.Path.Combine(Server.MapPath("~/Uploads/Pictures/Projects"), fn);
+                    projectsTbl.UploadedFile.SaveAs(SavePath);
+                    pt.Proj_Pic = fn;
+                }
+                else {
+                    pt.Proj_Pic = Proj_Pic;
+                }
+                
+                db.Entry(pt).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

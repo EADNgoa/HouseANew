@@ -432,7 +432,6 @@
     <Content Include="Views\ProfileTbls\Index.cshtml" />
     <Content Include="Views\ProjectsTbls\Create.cshtml" />
     <Content Include="Views\ProjectsTbls\Delete.cshtml" />
-    <Content Include="Views\ProjectsTbls\Details.cshtml" />
     <Content Include="Views\ProjectsTbls\Edit.cshtml" />
     <Content Include="Views\ProjectsTbls\Index.cshtml" />
     <Content Include="Views\StaffTbls\Create.cshtml" />

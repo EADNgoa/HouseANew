@@ -15,6 +15,24 @@ namespace GRB.Models
     {
     }
 
+    [MetadataType(typeof(ProjMetadata))]
+    public partial class ProjectsTbl
+    {
+    }
+
+    /// <summary>
+    /// Used to upload Project data with image
+    /// </summary>
+    [MetadataType(typeof(ProjectsMetadata))]
+    public class ProjectsImg
+    {
+        public int Proj_Id { get; set; }
+        public string Proj_Title { get; set; }
+        public string Proj_Desc { get; set; }
+        public string Proj_Status { get; set; }
+        public HttpPostedFileBase UploadedFile { get; set; }        
+    }
+
     //[MetadataType(typeof(EmpTypeMetadata))]
     //public partial class EmpTypes
     //{

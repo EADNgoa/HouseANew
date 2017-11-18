@@ -20,6 +20,46 @@ namespace GRB
 
     }
 
+    public class ProjMetadata
+    {
+        public int Proj_Id { get; set; }
+
+        [Required]
+        [StringLength(100, MinimumLength = 3)]
+        [Display(Name = "Titie")]
+        public string Proj_Title { get; set; }
+
+        [Required]
+        [StringLength(1000, MinimumLength = 10)]
+        [Display(Name = "Description")]
+        public string Proj_Desc { get; set; }
+
+        [Required]
+        [Display(Name = "Status")]
+        public string Proj_Status { get; set; }
+               
+    }
+
+    public class ProjectsMetadata
+    {
+        public int Proj_Id { get; set; }
+
+        [Required]
+        [StringLength(100,MinimumLength =3)]
+        [Display(Name ="Titie")]
+        public string Proj_Title { get; set; }
+
+        [Required]
+        [StringLength(1000, MinimumLength = 10)]
+        [Display(Name = "Description")]
+        public string Proj_Desc { get; set; }
+
+        [Required]        
+        [Display(Name = "Status")]
+        public string Proj_Status { get; set; }
+                
+        public HttpPostedFileBase UploadedFile { get; set; }
+    }
     //public class EmpTypeMetadata
     //{
     //    [Display(Name = "Employee Type")]

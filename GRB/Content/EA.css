@@ -52,15 +52,15 @@ input[type=checkbox] {
 /* Emblem
 <a id="emblem" href="~/"><img src="~/Emblem.png" height=100px; alt="Nunes HR System" /> </a>
  */
- #emblem {
-        position: fixed;
-        right: 150px;
-        top: 15px;
-        -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
-        filter: drop-shadow(5px 5px 5px #222);
-        -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
-        filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
-    }
+#emblem {
+    position: fixed;
+    right: 150px;
+    top: 15px;
+    -webkit-filter: drop-shadow(5px 5px 15px bisque);
+    filter: drop-shadow(5px 5px 5px bisque);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=5, OffY=5, Color='bisque')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=5, OffY=5, Color='bisque')";
+}
 
 
 

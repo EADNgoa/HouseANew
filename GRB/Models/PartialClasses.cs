@@ -33,6 +33,14 @@ namespace GRB.Models
         public HttpPostedFileBase UploadedFile { get; set; }        
     }
 
+    [MetadataType(typeof(ProfileMetadata))]
+    public class ProfilesImg
+    {
+        public int P_Id { get; set; }
+        public string P_Name { get; set; }
+        public string P_Desc { get; set; }
+        public HttpPostedFileBase UploadedFile { get; set; }        
+    }
     //[MetadataType(typeof(EmpTypeMetadata))]
     //public partial class EmpTypes
     //{

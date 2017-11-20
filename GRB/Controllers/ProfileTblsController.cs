@@ -46,14 +46,38 @@ namespace GRB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "P_Id,P_Name,P_Pic,P_Desc")] ProfileTbl profileTbl)
+        public ActionResult Create([Bind(Include = "P_Id,P_Name,P_Desc, UploadedFile")] ProfileTbl profileTbl)
         {
             if (ModelState.IsValid)
+            {
+                ProfileTbl pt = new ProfileTbl
+                {
+                    P_Id=profileTbl.P_Id,
+                    P_Name=profileTbl.P_Name,
+                    P_Desc=profileTbl.P_Desc               
+                };
+
+                if (profileTbl.UploadedFile !=null)
+                {
+                    string fn= profileTbl.UploadedFile.FileName.Substaring(profileTbl.UploadedFile.FileName.LastIndexOf('\\') + 1);
+                    Random rd = new Random(DateTime.Today.Day);
+                    fn = rd.Next(300,800) + "_" + fn;
+                    string SavePath = System.IO.Path.Combine(Server.MapPath("~/Uploads/Pictures/Profiles"), fn);
+                    profileTbl.UploadedFile.SaveAs(SavePath);
+                    pt.P_Pic = fn;    
+                } 
+
+                    db.ProfileTbls.Add(pt);
+                    db.SaveChanges();
+                
+                return RedirectToAction("Index");
+            }
+            /*if (ModelState.IsValid)
             {
                 db.ProfileTbls.Add(profileTbl);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
+            }*/
 
             return View(profileTbl);
         }

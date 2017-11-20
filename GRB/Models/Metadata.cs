@@ -60,6 +60,23 @@ namespace GRB
                 
         public HttpPostedFileBase UploadedFile { get; set; }
     }
+
+    public class ProfileMetadata
+    {
+        public int P_Id{get; set; }
+
+        [Required]
+        [StringLength(1000, MinimumLength = 10)]
+        [Display(Name = "Name")]
+        public string P_Name { get; set; }
+
+        [Required]
+        [StringLength(1000, MinimumLength = 10)]
+        [Display(Name = "Description")]
+        public string P_Desc { get; set; }
+
+        public HttpPostedFileBase UploadedFile { get; set; }
+    }
     //public class EmpTypeMetadata
     //{
     //    [Display(Name = "Employee Type")]

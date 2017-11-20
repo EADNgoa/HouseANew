@@ -1,0 +1,85 @@
+﻿@model PagedList.IPagedList<GRB.Models.InmatesTbl>
+@using PagedList.Mvc;
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h1>Projects</h1>
+<div class="row" style="padding:5px;">
+    <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+            @{ var pro = (IEnumerable<GRB.Models.ProfileTbl>)ViewBag.Projs;
+                var ThisPro = (GRB.Models.ProfileTbl)ViewBag.ProjId;
+             }
+
+            @foreach (var p in pro)
+            {
+                if (ThisPro.P_Id == p.P_Id)
+                {
+                    <li class="active"><a href="~/ProfileTbls/ProfilesList?ProfId=@p.P_Id">@p.P_Name</a></li>
+                }
+                else
+                {
+                    <li><a href="~/ProfileTbls/ProfilesList?ProfId=@p.P_Id">@p.P_Name</a></li>
+                }
+            }
+
+         
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>@ThisPro.P_Name</h2>
+                @*<h4>Status: <strong>@ThisPro.P_Desc</strong></h4>*@
+                <p>@ThisPro.P_Desc</p>
+            </div>
+            <div class="col-md-5">
+                @if (ThisPro.P_Pic?.Length > 0)
+                {
+                    <img src="~/Uploads/Pictures/Profiles/@ThisPro.P_Pic" height=300px />
+                }
+            </div>
+        </div>
+        
+        <hr />
+        @*<h2>List of Beneficiaries</h2>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().In_Name)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().Gender)
+                </th>
+                
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.In_Name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                
+                </tr>
+            }
+
+        </table>*@
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("InmatesList",
+        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, projId = 1  }))
+    </div>
+
+</div>

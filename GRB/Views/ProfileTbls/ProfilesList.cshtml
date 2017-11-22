@@ -34,12 +34,13 @@
     @*@foreach (var item in Model)*@
         <div class="row">
             <div class="col-md-4">
-                <h2>@res.P_Name</h2>
+                <h2 id="pname">@res.P_Name</h2>
                 @*<h4>Status: <strong>@ThisPro.P_Desc</strong></h4>*@
-                <p>@res.P_Designation</ p >
+                <h4>@res.P_Designation</h4>
+                <h4>@res.P_Desc</h4>
             </div >
             <div class="col-md-5">
-                    <img src = "~/Uploads/Pictures/Profiles/@res.P_Pic" style="height:300px" />
+                    <img src = "~/Uploads/Pictures/Profiles/@res.P_Pic" style="height:200px;width:200px" />
             </div>
         </div>
         <hr />

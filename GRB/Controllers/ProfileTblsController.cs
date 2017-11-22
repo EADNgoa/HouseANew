@@ -66,7 +66,8 @@ namespace GRB.Controllers
                     Random rd = new Random(DateTime.Today.Day);
                     fn = rd.Next(300,800) + "_" + fn;
                     string SavePath = System.IO.Path.Combine(Server.MapPath("~/Uploads/Pictures/Profiles/"), fn);
-                    profileTbl.UploadedFile.SaveAs(SavePath);
+                    //profileTbl.UploadedFile.SaveAs(SavePath);
+
                     pt.P_Pic = fn;    
                 } 
 
@@ -96,7 +97,7 @@ namespace GRB.Controllers
             }
             else
             {
-                id = 4008;
+                id = 4010;
                 ProfileTbl prt = db.ProfileTbls.Find(id);
                 ViewBag.results = prt;
             }
@@ -123,7 +124,7 @@ namespace GRB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "P_Id,P_Name,P_Pic,P_Desc")] ProfileTbl profileTbl)
+        public ActionResult Edit([Bind(Include = "P_Id,P_Name,P_Pic,P_Desc,P_Designation")] ProfileTbl profileTbl)
         {
             if (ModelState.IsValid)
             {

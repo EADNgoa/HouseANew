@@ -72,10 +72,12 @@ namespace GRB
 
         [Required]
         [StringLength(1000, MinimumLength = 10)]
+        [Display(Name = "Designation")]
+        public string P_Designation { get; set; }
+
+        [StringLength(1000, MinimumLength = 10)]
         [Display(Name = "Description")]
         public string P_Desc { get; set; }
-
-        public HttpPostedFileBase UploadedFile { get; set; }
     }
     //public class EmpTypeMetadata
     //{

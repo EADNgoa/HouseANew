@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GRB.Models;
+using System.IO;
 
 namespace GRB.Controllers
 {
@@ -46,7 +47,7 @@ namespace GRB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "P_Id,P_Name,P_Desc, UploadedFile")] ProfileTbl profileTbl)
+        public ActionResult Create([Bind(Include = "P_Id,P_Name,P_Desc,P_Designation, UploadedFile")] ProfilesImg profileTbl)
         {
             if (ModelState.IsValid)
             {
@@ -54,22 +55,26 @@ namespace GRB.Controllers
                 {
                     P_Id=profileTbl.P_Id,
                     P_Name=profileTbl.P_Name,
-                    P_Desc=profileTbl.P_Desc               
+                    P_Designation=profileTbl.P_Designation,
+                    P_Desc=profileTbl.P_Desc,
                 };
 
                 if (profileTbl.UploadedFile !=null)
                 {
-                    string fn= profileTbl.UploadedFile.FileName.Substaring(profileTbl.UploadedFile.FileName.LastIndexOf('\\') + 1);
+                    string filen = Path.GetFileName(profileTbl.UploadedFile.FileName);
+                    string fn = profileTbl.UploadedFile.FileName.Substring(profileTbl.UploadedFile.FileName.LastIndexOf('\\') + 1);
                     Random rd = new Random(DateTime.Today.Day);
                     fn = rd.Next(300,800) + "_" + fn;
-                    string SavePath = System.IO.Path.Combine(Server.MapPath("~/Uploads/Pictures/Profiles"), fn);
+                    string SavePath = System.IO.Path.Combine(Server.MapPath("~/Uploads/Pictures/Profiles/"), fn);
                     profileTbl.UploadedFile.SaveAs(SavePath);
                     pt.P_Pic = fn;    
                 } 
 
-                    db.ProfileTbls.Add(pt);
-                    db.SaveChanges();
-                
+
+                db.ProfileTbls.Add(pt);
+                db.SaveChanges();
+
+                ViewData["FileName"] = pt.P_Pic;
                 return RedirectToAction("Index");
             }
             /*if (ModelState.IsValid)
@@ -80,6 +85,22 @@ namespace GRB.Controllers
             }*/
 
             return View(profileTbl);
+        }
+
+        public ActionResult ProfilesList(int? id)
+        {
+            if(id != null)
+            {
+                ProfileTbl prt = db.ProfileTbls.Find(id);
+                ViewBag.results = prt.ToString();
+            }
+            else
+            {
+                id = 4008;
+                ProfileTbl prt = db.ProfileTbls.Find(id);
+                ViewBag.results = prt;
+            }
+            return View(db.ProfileTbls.ToList());
         }
 
         // GET: ProfileTbls/Edit/5

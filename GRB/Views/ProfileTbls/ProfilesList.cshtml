@@ -1,50 +1,47 @@
-﻿@model PagedList.IPagedList<GRB.Models.InmatesTbl>
+﻿@model IEnumerable<GRB.Models.ProfileTbl>
 @using PagedList.Mvc;
-
+@using GRB.Models;
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Index";
+    var res = ViewBag.results;
 }
 
 <h1>Projects</h1>
+<h3>@ViewData["FileName"]</h3>
+            @{ 
+                var ThisPro = (GRB.Models.ProfileTbl)ViewBag.ProfId;
+             }
 <div class="row" style="padding:5px;">
     <div class="col-md-3">
         <ul class="nav nav-pills nav-stacked">
-            @{ var pro = (IEnumerable<GRB.Models.ProfileTbl>)ViewBag.Projs;
-                var ThisPro = (GRB.Models.ProfileTbl)ViewBag.ProjId;
-             }
 
-            @foreach (var p in pro)
+            @foreach (var item in Model)
             {
-                if (ThisPro.P_Id == p.P_Id)
+                if (item.P_Id == item.P_Id)
                 {
-                    <li class="active"><a href="~/ProfileTbls/ProfilesList?ProfId=@p.P_Id">@p.P_Name</a></li>
+                    <li class="active"><a href="~/ProfileTbls/ProfilesList?ProfId=@item.P_Id">@item.P_Designation</a></li>
                 }
                 else
                 {
-                    <li><a href="~/ProfileTbls/ProfilesList?ProfId=@p.P_Id">@p.P_Name</a></li>
+                    <li><a href="~/ProfileTbls/ProfilesList?ProfId=@item.P_Id">@item.P_Designation</a></li>
                 }
             }
-
-         
         </ul>
     </div>
     <div class="col-md-9">
+    @*@foreach (var item in Model)*@
         <div class="row">
             <div class="col-md-4">
-                <h2>@ThisPro.P_Name</h2>
+                <h2>@res.P_Name</h2>
                 @*<h4>Status: <strong>@ThisPro.P_Desc</strong></h4>*@
-                <p>@ThisPro.P_Desc</p>
-            </div>
+                <p>@res.P_Designation</ p >
+            </div >
             <div class="col-md-5">
-                @if (ThisPro.P_Pic?.Length > 0)
-                {
-                    <img src="~/Uploads/Pictures/Profiles/@ThisPro.P_Pic" height=300px />
-                }
+                    <img src = "~/Uploads/Pictures/Profiles/@res.P_Pic" style="height:300px" />
             </div>
         </div>
-        
         <hr />
         @*<h2>List of Beneficiaries</h2>
 
@@ -76,10 +73,10 @@
             }
 
         </table>*@
-        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
-        @Html.PagedListPager(Model, page => Url.Action("InmatesList",
-        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, projId = 1  }))
+        @Html.PagedListPager(Model, page => Url.Action("InmatesList",*@
+        @*new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, projId = 1  }))*@
     </div>
 
 </div>

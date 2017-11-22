@@ -18,5 +18,6 @@ namespace GRB.Models
         public string P_Name { get; set; }
         public string P_Pic { get; set; }
         public string P_Desc { get; set; }
+        public string P_Designation { get; set; }
     }
 }

@@ -34,10 +34,14 @@ namespace GRB.Models
     }
 
     [MetadataType(typeof(ProfileMetadata))]
+    public partial class ProfileTbl { }
+
+    [MetadataType(typeof(ProfileMetadata))]
     public class ProfilesImg
     {
         public int P_Id { get; set; }
         public string P_Name { get; set; }
+        public string P_Designation { get; set; }
         public string P_Desc { get; set; }
         public HttpPostedFileBase UploadedFile { get; set; }        
     }

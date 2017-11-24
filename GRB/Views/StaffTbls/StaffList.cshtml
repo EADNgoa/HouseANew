@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GRB.Models.StaffTbl>
+@using PagedList.Mvc;
+@using GRB.Models;
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+    var res = (StaffTbl)ViewBag.results;
+}
+
+<h2>List of Staff</h2>
+<div class="row" style="padding:5px;">
+    <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+
+            @foreach (var p in Model)
+            {
+                if (p.S_Id == p.S_Id)
+                {
+                    <li class="active">@Html.ActionLink(
+                                      linkText: p.S_Name,
+                                      actionName:"StaffList",
+                                      controllerName: "StaffTbls",
+                                      routeValues:new {
+                                          id=p.S_Id
+                                      },
+                                      htmlAttributes:null)</li>
+                    @*<li class="active"><a href="~/StaffTbls/StaffList.cshtml?@p.S_Id">@p.S_Name</a></li>*@
+                }
+                else
+                {
+                    <li>@Html.ActionLink(
+                                      linkText: p.S_Name,
+                                      actionName: "StaffList",
+                                      controllerName: "StaffTbls",
+                                      routeValues: new
+                                      {
+                                          id = p.S_Id
+                                      },
+                                      htmlAttributes: null)</li>
+                }
+            }
+
+         
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="sname">Full Name</label>
+                <h2 id="sname">@res.S_Name</h2>
+            </div>
+            <div class="col-md-5">
+                <label for="sname">Responsibilities</label>
+                <h2 id="sname">@res.S_Responsibilities</h2>
+            </div>
+        </div>
+        
+        <hr />
+    </div>
+
+</div>

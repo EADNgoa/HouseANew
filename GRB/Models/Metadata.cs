@@ -79,6 +79,21 @@ namespace GRB
         [Display(Name = "Description")]
         public string P_Desc { get; set; }
     }
+
+    public class StaffMetadata
+    {
+        public int S_Id { get; set; }
+
+        [Required]
+        [StringLength(1000, MinimumLength = 3)]
+        [Display(Name = "Name")]
+        public string S_Name { get; set; }
+
+        [Required]
+        [StringLength(1000, MinimumLength = 3)]
+        [Display(Name = "Responsibility")]
+        public string S_Responsibilities { get; set; }
+    }
     //public class EmpTypeMetadata
     //{
     //    [Display(Name = "Employee Type")]

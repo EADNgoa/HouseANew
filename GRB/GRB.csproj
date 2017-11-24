@@ -584,6 +584,7 @@
     <Content Include="Views\Shared\_ReportsLayout.cshtml" />
     <Content Include="Views\InmatesTbls\InmatesList.cshtml" />
     <Content Include="Views\ProfileTbls\ProfilesList.cshtml" />
+    <Content Include="Views\StaffTbls\StaffList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -58,6 +58,20 @@ namespace GRB.Controllers
             return View(staffTbl);
         }
 
+        public ActionResult StaffList(int? id)
+        {
+            if (id != null)
+            {
+                ViewBag.results = db.StaffTbls.Find(id);
+            }
+            else
+            {
+                id = 1;
+                ViewBag.results = db.StaffTbls.Find(id);
+            }
+            return View(db.StaffTbls.ToList());
+        }
+
         // GET: StaffTbls/Edit/5
         public ActionResult Edit(int? id)
         {

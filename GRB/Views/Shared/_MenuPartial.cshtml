@@ -15,42 +15,42 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Home<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
+                    @*<ul class="dropdown-menu">
                         <li><a href="~/Configs/Edit/1">Carousal</a></li>
                         <li><a href="~/AllowanceTypes">Mission Vision</a></li>
                         <li><a href="~/EmpTypes">News</a></li>
                         <li><a href="~/EDocTypes">Statutes</a></li>
                         <li><a href="~/Account/GivePrivilage">Grant Privilages</a></li>
-                    </ul>
+                    </ul>*@
                 </li>
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profiles<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="~/Views/ProfileTbls/Index.cshtml">Profiles</a></li>                                                                        
+                        <li>@Html.ActionLink("Profiles", "Index", "ProfileTbls")</li>                                                                        
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Staff<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="~/Views/StaffTbls/Index.cshtml">Staff</a></li>                        
+                        <li>@Html.ActionLink("Staff", "Index", "StaffTbls")</li>                        
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Work<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="~/Views/ProjectsTbls/Index.cshtml">Projects</a></li>
-                        <li><a href="~/Views/InmatesTbls/Index.cshtml">Inmates</a></li>
+                        <li>@Html.ActionLink("Projects", "Index", "ProjectsTbls")</li>
+                        <li>@Html.ActionLink("Inmates", "Index", "InmatesTbls")</li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">About<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="~/Views/GoaRehabTbls/Index.cshtml">About GRB</a></li>                        
+                        <li>@Html.ActionLink("About GRB", "Index", "GoaRehabTbls")</li>                        
                     </ul>
                 </li>
-                <li><a href="~/Views/Home/ContactTech.cshtml">Tech Support</a></li>                        
+                <li>@Html.ActionLink("Tech Support", "ContactTech", "Home")</li>                        
             </ul>
             @Html.Partial("_LoginPartial")
         </div>

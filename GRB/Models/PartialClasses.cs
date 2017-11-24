@@ -45,6 +45,10 @@ namespace GRB.Models
         public string P_Desc { get; set; }
         public HttpPostedFileBase UploadedFile { get; set; }        
     }
+
+    [MetadataType(typeof(StaffMetadata))]
+    public partial class StaffTbl { }
+
     //[MetadataType(typeof(EmpTypeMetadata))]
     //public partial class EmpTypes
     //{

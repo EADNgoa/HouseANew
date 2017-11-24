@@ -52,6 +52,7 @@
           </Key>
           <Property Name="P_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="P_Name" Type="varchar" MaxLength="100" />
+          <Property Name="P_Designation" Type="varchar" MaxLength="100" />
           <Property Name="P_Pic" Type="varchar" MaxLength="50" />
           <Property Name="P_Desc" Type="varchar(max)" />
         </EntityType>
@@ -165,6 +166,7 @@
           <Property Name="P_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="P_Pic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="P_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="P_Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ProjectsTbl">
           <Key>
@@ -251,6 +253,7 @@
           <EntitySetMapping Name="ProfileTbls">
             <EntityTypeMapping TypeName="GoaRehabModel.ProfileTbl">
               <MappingFragment StoreEntitySet="ProfileTbl">
+                <ScalarProperty Name="P_Designation" ColumnName="P_Designation" />
                 <ScalarProperty Name="P_Desc" ColumnName="P_Desc" />
                 <ScalarProperty Name="P_Pic" ColumnName="P_Pic" />
                 <ScalarProperty Name="P_Name" ColumnName="P_Name" />

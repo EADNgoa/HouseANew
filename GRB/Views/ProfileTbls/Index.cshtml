@@ -1,47 +1,51 @@
 ﻿@model IEnumerable<GRB.Models.ProfileTbl>
 
 @{
-    ViewBag.Title = "Profiles";
+    ViewBag.Title = "Index";
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>CM</h2>
-        </div>
-        <div class="col-md-4">
-            <h2>Chairman</h2>
-        </div>
-        <div class="col-md-4">
-            <h2>Director</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <img src="~/Uploads/Pictures/Profiles/CM.jpg" width="250px" height="250px" alt="Goa CM" />
-        </div>
-        <div class="col-md-4">
-            <img src="~/Uploads/Pictures/Profiles/Chairman.jpg" width="250px" height="250px" alt="Chairman" />
-        </div>
-        <div class="col-md-4">
-            <img alt="Director" />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <p style="color:black; font-style:italic; font-family:'Times New Roman'; font-size:large">
-                Chief Minister of Goa
-            </p>
-        </div>
-        <div class="col-md-4">
-            <p style="color:black; font-style:italic; font-family:'Times New Roman'; font-size:large">
-                Chairman of Goa Rehabilitation Board
-            </p>
-        </div>
-        <div class="col-md-4">
-            <p style="color:black; font-style:italic; font-family:'Times New Roman'; font-size:large">
-                Director of Goa Rehabilitation Board
-            </p>
-        </div>
-    </div>
-</div>
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.P_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.P_Pic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.P_Desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.P_Designation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.P_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.P_Pic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.P_Desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.P_Designation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.P_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.P_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.P_Id })
+        </td>
+    </tr>
+}
+
+</table>

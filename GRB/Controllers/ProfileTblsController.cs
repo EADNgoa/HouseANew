@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GRB.Models;
+using System.IO;
 
 namespace GRB.Controllers
 {
@@ -46,16 +47,57 @@ namespace GRB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "P_Id,P_Name,P_Pic,P_Desc")] ProfileTbl profileTbl)
+        public ActionResult Create([Bind(Include = "P_Id,P_Name,P_Desc,P_Designation, UploadedFile")] ProfilesImg profileTbl)
         {
             if (ModelState.IsValid)
+            {
+                ProfileTbl pt = new ProfileTbl
+                {
+                    P_Id=profileTbl.P_Id,
+                    P_Name=profileTbl.P_Name,
+                    P_Designation=profileTbl.P_Designation,
+                    P_Desc=profileTbl.P_Desc,
+                };
+
+                if (profileTbl.UploadedFile !=null)
+                {
+                    string fn = profileTbl.UploadedFile.FileName.Substring(profileTbl.UploadedFile.FileName.LastIndexOf('\\') + 1);
+                    Random rd = new Random(DateTime.Today.Day);
+                    fn = rd.Next(300,800) + "_" + fn;
+                    string SavePath = System.IO.Path.Combine(Server.MapPath("~/Uploads/Pictures/Profiles/"), fn);
+                    profileTbl.UploadedFile.SaveAs(SavePath);
+                    pt.P_Pic = fn;
+                } 
+
+
+                db.ProfileTbls.Add(pt);
+                db.SaveChanges();
+
+                ViewData["FileName"] = pt.P_Pic;
+                return RedirectToAction("Index");
+            }
+            /*if (ModelState.IsValid)
             {
                 db.ProfileTbls.Add(profileTbl);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
+            }*/
 
             return View(profileTbl);
+        }
+
+        public ActionResult ProfilesList(int? id)
+        {
+            if(id != null)
+            {
+                ViewBag.results = db.ProfileTbls.Find(id);                
+            }
+            else
+            {
+                id = 4010;
+                ViewBag.results = db.ProfileTbls.Find(id);
+            }
+            return View(db.ProfileTbls.ToList());
         }
 
         // GET: ProfileTbls/Edit/5
@@ -66,11 +108,21 @@ namespace GRB.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ProfileTbl profileTbl = db.ProfileTbls.Find(id);
+            ViewBag.ExistingImg = profileTbl.P_Pic;
             if (profileTbl == null)
             {
                 return HttpNotFound();
             }
-            return View(profileTbl);
+            ProfilesImg ViewInfo = new ProfilesImg
+            {
+                P_Id = profileTbl.P_Id,
+                P_Desc = profileTbl.P_Desc,
+                P_Name=profileTbl.P_Name,
+                P_Designation = profileTbl.P_Designation
+            };
+            ViewBag.ExistingFile = profileTbl.P_Pic;
+            return View(ViewInfo);
+            //return View(profileTbl);
         }
 
         // POST: ProfileTbls/Edit/5
@@ -78,11 +130,41 @@ namespace GRB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "P_Id,P_Name,P_Pic,P_Desc")] ProfileTbl profileTbl)
+        public ActionResult Edit([Bind(Include = "P_Id,P_Name,P_Desc,P_Designation, UploadedFile")] ProfilesImg profileTbl,string P_Pic)
         {
+            //if (ModelState.IsValid)
+            //{
+            //    db.Entry(profileTbl).State = EntityState.Modified;
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+            //return View(profileTbl);
             if (ModelState.IsValid)
             {
-                db.Entry(profileTbl).State = EntityState.Modified;
+                string fn = "";
+
+                ProfileTbl pt = new ProfileTbl
+                {
+                    P_Id = profileTbl.P_Id,
+                    P_Desc = profileTbl.P_Desc,
+                    P_Name = profileTbl.P_Name,
+                    P_Designation = profileTbl.P_Designation
+                };
+
+                if (profileTbl.UploadedFile != null)
+                {
+                    fn = profileTbl.UploadedFile.FileName.Substring(profileTbl.UploadedFile.FileName.LastIndexOf('\\') + 1);
+                    fn = profileTbl.P_Id + "_" + fn;
+                    string SavePath = System.IO.Path.Combine(Server.MapPath("~/Uploads/Pictures/Profiles/"), fn);
+                    profileTbl.UploadedFile.SaveAs(SavePath);
+                    pt.P_Pic = fn;
+                }
+                else
+                {
+                    pt.P_Pic = P_Pic;
+                }
+
+                db.Entry(pt).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

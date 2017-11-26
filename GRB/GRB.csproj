@@ -544,7 +544,7 @@
     <Content Include="Views\GoaRehabTbls\Create.cshtml" />
     <Content Include="Views\GoaRehabTbls\Delete.cshtml" />
     <Content Include="Views\GoaRehabTbls\Details.cshtml" />
-    <Content Include="Views\GoaRehabTbls\Edit.cshtml" />
+    <Content Include="Views\GoaRehabTbls\EditStatutes.cshtml" />
     <Content Include="Views\GoaRehabTbls\Index.cshtml" />
     <Content Include="Views\InmatesTbls\Create.cshtml" />
     <Content Include="Views\InmatesTbls\Delete.cshtml" />
@@ -585,6 +585,8 @@
     <Content Include="Views\InmatesTbls\InmatesList.cshtml" />
     <Content Include="Views\ProfileTbls\ProfilesList.cshtml" />
     <Content Include="Views\StaffTbls\StaffList.cshtml" />
+    <Content Include="Views\GoaRehabTbls\EditMission.cshtml" />
+    <Content Include="Views\GoaRehabTbls\EditVision.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

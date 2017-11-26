@@ -15,13 +15,14 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Home<span class="caret"></span></a>
-                    @*<ul class="dropdown-menu">
-                        <li><a href="~/Configs/Edit/1">Carousal</a></li>
-                        <li><a href="~/AllowanceTypes">Mission Vision</a></li>
-                        <li><a href="~/EmpTypes">News</a></li>
-                        <li><a href="~/EDocTypes">Statutes</a></li>
-                        <li><a href="~/Account/GivePrivilage">Grant Privilages</a></li>
-                    </ul>*@
+                    <ul class="dropdown-menu">
+                     @*   <li><a href="~/Configs/Edit/1">Carousal</a></li>*@
+                        <li>@Html.ActionLink("Edit Mission", "EditMission", "GoaRehabTbls")</li>
+                        <li>@Html.ActionLink("Edit Vision", "EditVision", "GoaRehabTbls")</li>
+                        <li><a href="#">News</a></li>
+                        <li>@Html.ActionLink("Edit Statutes", "EditStatutes", "GoaRehabTbls")</li>
+                        <li><a href="#">Grant Privilages</a></li>
+                    </ul>
                 </li>
 
                 <li class="dropdown">

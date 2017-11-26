@@ -49,6 +49,18 @@ namespace GRB.Models
     [MetadataType(typeof(StaffMetadata))]
     public partial class StaffTbl { }
 
+    [MetadataType(typeof(GoaRehabMetadata))]
+    public partial class GoaRehabTbl { }
+
+    [MetadataType(typeof(GoaRehabMetadata))]
+    public class GoaRehabImg
+    {
+        public int Id { get; set; }
+        public string Mission { get; set; }
+        public string Vision { get; set; }
+        public HttpPostedFileBase UploadedFile { get; set; }
+    }
+
     //[MetadataType(typeof(EmpTypeMetadata))]
     //public partial class EmpTypes
     //{

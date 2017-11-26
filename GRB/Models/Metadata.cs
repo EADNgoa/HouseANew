@@ -94,6 +94,38 @@ namespace GRB
         [Display(Name = "Responsibility")]
         public string S_Responsibilities { get; set; }
     }
+
+    public class GoaRehabMetadata
+    {
+        public int Id { get; set; }
+
+        [Required]
+        [StringLength(1000, MinimumLength = 5)]
+        [Display(Name = "Mission")]
+        public string Mission { get; set; }
+
+        [Required]
+        [StringLength(1000, MinimumLength = 5)]
+        [Display(Name = "Vision")]
+        public string Vision { get; set; }
+
+    }
+
+    //public class GoaRbMetadata
+    //{
+    //    public int Id { get; set; }
+
+    //    [Required]
+    //    [StringLength(1000, MinimumLength = 5)]
+    //    [Display(Name = "Mission")]
+    //    public string Mission { get; set; }
+
+    //    [Required]
+    //    [StringLength(1000, MinimumLength = 5)]
+    //    [Display(Name = "Vision")]
+    //    public string Vision { get; set; }
+
+    //}
     //public class EmpTypeMetadata
     //{
     //    [Display(Name = "Employee Type")]

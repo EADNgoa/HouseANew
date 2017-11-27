@@ -26,15 +26,15 @@
         <th>
             @Html.DisplayNameFor(model => model.Vision)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Location)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Ph_No)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.File_Name)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -55,15 +55,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.Vision)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Location)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Ph_No)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.File_Name)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |

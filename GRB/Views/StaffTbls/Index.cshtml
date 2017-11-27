@@ -5,9 +5,11 @@
 }
 
 <h2>Staff Information</h2>
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <div class="container">
-    <table class="table table-hover">
+    <table class="table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -23,6 +25,10 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.S_Responsibilities)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.S_Id }) 
+                        @Html.ActionLink("Delete", "Delete", new { id = item.S_Id })
                     </td>
                 </tr>
             }

@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GRB.Models;
+using System.Data.Entity;
 
 namespace GRB.Controllers
 {
     public class HomeController : Controller
     {
+        private GoaRehabEntities db = new GoaRehabEntities();
         public ActionResult Index()
         {
+            var id = 1;
+            ViewBag.res = db.GoaRehabTbls.Find(id);
             return View();
         }
 
@@ -20,9 +25,10 @@ namespace GRB.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var id = 1;
+            //GoaRehabTbl grb = db.GoaRehabTbls.Find(id);
+            ViewBag.Message = "Your application description page."; 
+            return View(db.GoaRehabTbls.ToList());
         }
 
         public ActionResult ContactTech()

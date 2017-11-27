@@ -144,7 +144,7 @@ namespace GRB.Controllers
 
             db.Entry(existingRec).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("InnerCircle", "Home");
             //}
             //return View(goaRehabTbl);
         }
@@ -159,8 +159,8 @@ namespace GRB.Controllers
 
             db.Entry(existingRec).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
-            
+            return RedirectToAction("InnerCircle", "Home");
+
         }
 
         [HttpPost]
@@ -191,7 +191,7 @@ namespace GRB.Controllers
 
                 db.Entry(existingRec).State = EntityState.Modified;
                 db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("InnerCircle","Home");
             //}
             //return View(goaRehabTbl);
         }

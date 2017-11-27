@@ -587,6 +587,7 @@
     <Content Include="Views\StaffTbls\StaffList.cshtml" />
     <Content Include="Views\GoaRehabTbls\EditMission.cshtml" />
     <Content Include="Views\GoaRehabTbls\EditVision.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

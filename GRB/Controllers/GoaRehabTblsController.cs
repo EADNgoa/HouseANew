@@ -140,7 +140,7 @@ namespace GRB.Controllers
             //{
             var existingRec = db.GoaRehabTbls.Find(1);
 
-            existingRec.Mission = goaRehabTbl.Vision;
+            existingRec.Vision = goaRehabTbl.Vision;
 
             db.Entry(existingRec).State = EntityState.Modified;
             db.SaveChanges();

@@ -26,9 +26,9 @@ namespace GRB.Controllers
         public ActionResult About()
         {
             var id = 1;
-            //GoaRehabTbl grb = db.GoaRehabTbls.Find(id);
+            ViewBag.info = db.GoaRehabTbls.Find(id);
             ViewBag.Message = "Your application description page."; 
-            return View(db.GoaRehabTbls.ToList());
+            return View();
         }
 
         public ActionResult ContactTech()

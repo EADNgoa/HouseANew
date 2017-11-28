@@ -66,12 +66,12 @@ namespace GRB
         public int P_Id{get; set; }
 
         [Required]
-        [StringLength(1000, MinimumLength = 10)]
+        [StringLength(1000, MinimumLength = 3)]
         [Display(Name = "Name")]
         public string P_Name { get; set; }
 
         [Required]
-        [StringLength(1000, MinimumLength = 10)]
+        [StringLength(1000, MinimumLength = 3)]
         [Display(Name = "Designation")]
         public string P_Designation { get; set; }
 
@@ -100,7 +100,7 @@ namespace GRB
         public int Id { get; set; }
 
         [Required]
-        [StringLength(1000, MinimumLength = 5)]
+        [StringLength(1000, MinimumLength = 3)]
         [Display(Name = "Mission")]
         public string Mission { get; set; }
 

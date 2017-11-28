@@ -1,13 +1,60 @@
 ﻿@*@model GRB.Models.GoaRehabTbl*@
 @model IEnumerable<GRB.Models.GoaRehabTbl>
-
+@using GRB.Models;
 @{
     ViewBag.Title = "About";
+    var msg = (String)ViewBag.Message;
+    var info = (GoaRehabTbl)ViewBag.info;
 }
 
 <h2>About</h2>
 
 @using (Html.BeginForm())
 {
-    <div class="container">s</div>
+    <div class="container">
+        <h2>Goa Rehabilitation Centre</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="mis">Mission:</label>
+                <p id="mis">@info.Mission</p>
+            </div>
+            <div class="col-lg-6">
+                <label for="map">Location</label>
+                <div class="container" id="map">
+                    <h2>Map Will come here</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <h2>Right To Information</h2>
+            </div>
+        </div>
+        <h2>Contact Information</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="container">
+                    <label for="phno">Phone Number:</label>
+                    <p id="phno">@info.Ph_No
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="container">
+                    <label for="addr">Address:</label>
+                    <p id="addr">
+                        @info.Addr
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="container">
+                    <label for="eid">Email Id:</label>
+                    <p id="eid">
+                        @info.Emails
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 }

@@ -61,6 +61,26 @@ namespace GRB.Models
         public HttpPostedFileBase UploadedFile { get; set; }
     }
 
+    [MetadataType(typeof(NewsMetadata))]
+    public partial class NewsTbl { }
+
+    [MetadataType(typeof(NewsMetadata))]
+    public class NewsImg
+    {
+        public int N_Id { get; set; }
+        public string N_Title { get; set; }
+        public string N_Desc { get; set; }
+        public DateTime N_Date { get; set; }
+        public string N_Status { get; set; }
+        public HttpPostedFileBase UploadedFile { get; set; }
+    }
+
+    public enum status
+    {
+        Activated,
+        Deactivated
+    }
+
     //[MetadataType(typeof(EmpTypeMetadata))]
     //public partial class EmpTypes
     //{

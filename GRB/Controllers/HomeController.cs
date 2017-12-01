@@ -15,7 +15,7 @@ namespace GRB.Controllers
         {
             NewsTbl ntb = new NewsTbl();
             var id = 1;
-            var stst = "Activated";
+            var stst = "Active";
             ViewBag.res = db.GoaRehabTbls.Find(id);
             return View(db.NewsTbls.Where(nt => nt.N_Status == stst).ToList());
         }

@@ -60,7 +60,7 @@
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.N_Status ,new List <SelectListItem>
                     {
-                        new SelectListItem{Text="Activated", Value="Activated"},
+                        new SelectListItem{Text="Activated", Value="Active"},
                         new SelectListItem{Text="Deactivated", Value="Deactivated"}}, "Select Status", new { @class = "form-control"}
                     )
                 @Html.ValidationMessageFor(model => model.N_Status, "", new { @class = "text-danger" })

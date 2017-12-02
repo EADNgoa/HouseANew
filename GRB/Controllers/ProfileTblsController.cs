@@ -94,7 +94,7 @@ namespace GRB.Controllers
             }
             else
             {
-                id = 4010;
+                id = db.ProfileTbls.FirstOrDefault().P_Id;
                 ViewBag.results = db.ProfileTbls.Find(id);
             }
             return View(db.ProfileTbls.ToList());

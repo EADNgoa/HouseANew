@@ -588,6 +588,7 @@
     <Content Include="Views\NewsTbls\Details.cshtml" />
     <Content Include="Views\NewsTbls\Edit.cshtml" />
     <Content Include="Views\NewsTbls\Index.cshtml" />
+    <Content Include="Views\GoaRehabTbls\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

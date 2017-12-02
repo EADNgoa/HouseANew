@@ -4,5 +4,6 @@
     [N_Title] VARCHAR(50) NULL, 
     [N_Desc] VARCHAR(MAX) NULL, 
     [N_Pic] varchar(100) NULL, 
-    [N_Date] DATE NULL
+    [N_Date] DATE NULL,
+	[N_Status] VARCHAR (100) NULL,
 )

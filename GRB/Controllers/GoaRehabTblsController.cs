@@ -119,18 +119,18 @@ namespace GRB.Controllers
         // POST: GoaRehabTbls/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "Id,Title,Desc,Addr,Mission,Vision,Location,Ph_No,File_Name")] GoaRehabTbl goaRehabTbl)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry(goaRehabTbl).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(goaRehabTbl);
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Title,Desc,Addr,Location,Ph_No")] GoaRehabTbl goaRehabTbl)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(goaRehabTbl).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(goaRehabTbl);
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]

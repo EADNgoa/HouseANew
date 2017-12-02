@@ -550,11 +550,6 @@
     <Content Include="Views\InmatesTbls\Delete.cshtml" />
     <Content Include="Views\InmatesTbls\Edit.cshtml" />
     <Content Include="Views\InmatesTbls\Index.cshtml" />
-    <Content Include="Views\NewsTbls\Create.cshtml" />
-    <Content Include="Views\NewsTbls\Delete.cshtml" />
-    <Content Include="Views\NewsTbls\Details.cshtml" />
-    <Content Include="Views\NewsTbls\Edit.cshtml" />
-    <Content Include="Views\NewsTbls\Index.cshtml" />
     <Content Include="Views\PicturesTbls\Create.cshtml" />
     <Content Include="Views\PicturesTbls\Delete.cshtml" />
     <Content Include="Views\PicturesTbls\Details.cshtml" />
@@ -588,6 +583,11 @@
     <Content Include="Views\GoaRehabTbls\EditMission.cshtml" />
     <Content Include="Views\GoaRehabTbls\EditVision.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\NewsTbls\Create.cshtml" />
+    <Content Include="Views\NewsTbls\Delete.cshtml" />
+    <Content Include="Views\NewsTbls\Details.cshtml" />
+    <Content Include="Views\NewsTbls\Edit.cshtml" />
+    <Content Include="Views\NewsTbls\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

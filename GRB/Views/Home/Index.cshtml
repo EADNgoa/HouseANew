@@ -1,7 +1,9 @@
 ﻿@using GRB.Models;
+@model IEnumerable<GRB.Models.NewsTbl>
 @{   
     Layout = "~/Views/Shared/_Layout.cshtml";
     var res = (GoaRehabTbl)ViewBag.res;
+    //NewsTbl nws = (NewsTbl)ViewBag.news;
 }
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -83,22 +85,43 @@
     </a>
 </div>
         
-<div class="row" style="padding:5px;">
-    <div class="col-md-4">
+<div class="row">
+    <div class="col-md-3">
         <h2 style="text-align:center;">Mission</h2>
-        <p style="color:black; font-style:italic; font-family:'Times New Roman'; font-size:large">
-             @res.Mission   
-        </p>
+        <center>
+            <p style="color:black; font-style:italic; font-family:'Times New Roman'; font-size:large">
+                @res.Mission
+            </p>
+        </center>
     </div>
-    <div class="col-md-4">
-        <h2 style="text-align:center;">Latest News</h2>
+    <div class="col-md-6">
+        <div class="row">
+            <h2 style="text-align:center;">Latest News</h2>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                @*<div class="col-md-2">*@
+                <center>
+                    <img src="/Uploads/Pictures/@Html.DisplayFor(modelItem => @item.N_Pic)" style="height:200px;width:300px" />
+                    <br />
+                    <h2>@Html.DisplayFor(modelItem => @item.N_Title)</h2>
+                    <br />
+                    <p style="color:black; font-family:'Times New Roman'; font-size:x-large">@Html.DisplayFor(modelItem => @item.N_Desc)</p>
+                    <br />
+                </center>
+                  @* </div>*@
+            </div>
 
+        }
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <h2 style="text-align:center;">Vision</h2>
-        <p style="color:black; font-style:italic; font-family:'Times New Roman'; font-size:large">
-             @res.Vision
-        </p>
+        <center>
+            <p style="color:black; font-style:italic; font-family:'Times New Roman'; font-size:large">
+                @res.Vision
+            </p>
+        </center>
     </div>
 </div>
 

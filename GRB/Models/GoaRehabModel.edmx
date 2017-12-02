@@ -33,10 +33,11 @@
             <PropertyRef Name="N_Id" />
           </Key>
           <Property Name="N_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="N_Title" Type="varchar" MaxLength="50" />
+          <Property Name="N_Title" Type="varchar" MaxLength="100" />
           <Property Name="N_Desc" Type="varchar(max)" />
           <Property Name="N_Pic" Type="varchar" MaxLength="100" />
           <Property Name="N_Date" Type="date" />
+          <Property Name="N_Status" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="PicturesTbl">
           <Key>
@@ -145,10 +146,11 @@
             <PropertyRef Name="N_Id" />
           </Key>
           <Property Name="N_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="N_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="N_Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="N_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="N_Pic" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="N_Date" Type="DateTime" Precision="0" />
+          <Property Name="N_Status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PicturesTbl">
           <Key>
@@ -233,6 +235,7 @@
           <EntitySetMapping Name="NewsTbls">
             <EntityTypeMapping TypeName="GoaRehabModel.NewsTbl">
               <MappingFragment StoreEntitySet="NewsTbl">
+                <ScalarProperty Name="N_Status" ColumnName="N_Status" />
                 <ScalarProperty Name="N_Date" ColumnName="N_Date" />
                 <ScalarProperty Name="N_Pic" ColumnName="N_Pic" />
                 <ScalarProperty Name="N_Desc" ColumnName="N_Desc" />

@@ -2,6 +2,7 @@
 @model IEnumerable<GRB.Models.GoaRehabTbl>
 @using GRB.Models;
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "About";
     var msg = (String)ViewBag.Message;
     var info = (GoaRehabTbl)ViewBag.info;
@@ -17,6 +18,8 @@
             <div class="col-lg-6">
                 <label for="mis">Mission:</label>
                 <p id="mis">@info.Mission</p>
+                <label for="mis">Vision:</label>
+                <p id="mis">@info.Vision</p>
             </div>
             <div class="col-lg-6">
                 <label for="map">Location</label>

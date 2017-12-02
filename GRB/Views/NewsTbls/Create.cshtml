@@ -1,4 +1,4 @@
-﻿@model GRB.Models.NewsTbl
+﻿@model GRB.Models.NewsImg
 
 @{
     ViewBag.Title = "Create";
@@ -6,13 +6,12 @@
 
 <h2>Create</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>NewsTbl</h4>
+        <h4>Create News Article</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -26,24 +25,45 @@
         <div class="form-group">
             @Html.LabelFor(model => model.N_Desc, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.N_Desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.N_Desc, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.N_Desc, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.N_Pic, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.N_Pic, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.N_Pic, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group">
+            <label class="control-label col-md-2">News Image:</label>
+            <div class="col-md-3">
+                <input class="form-control" type="file" id="UploadedFile" name="UploadedFile" />
+            </div>
+            <div class="col-md-7">
+                <label class="control-label">*Image should be in 3x2 ratio with a width of about 300 pixels only.</label>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.N_Date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.N_Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.N_Date, new { @class = "form-control", @type="Date" })
                 @Html.ValidationMessageFor(model => model.N_Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.N_Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.N_Status ,new List <SelectListItem>
+                    {
+                        new SelectListItem{Text="Activated", Value="Active"},
+                        new SelectListItem{Text="Deactivated", Value="Deactivated"}}, "Select Status", new { @class = "form-control"}
+                    )
+                @Html.ValidationMessageFor(model => model.N_Status, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -58,7 +78,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

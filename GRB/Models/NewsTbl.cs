@@ -19,5 +19,6 @@ namespace GRB.Models
         public string N_Desc { get; set; }
         public string N_Pic { get; set; }
         public Nullable<System.DateTime> N_Date { get; set; }
+        public string N_Status { get; set; }
     }
 }

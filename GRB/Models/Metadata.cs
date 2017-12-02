@@ -66,12 +66,12 @@ namespace GRB
         public int P_Id{get; set; }
 
         [Required]
-        [StringLength(1000, MinimumLength = 10)]
+        [StringLength(1000, MinimumLength = 3)]
         [Display(Name = "Name")]
         public string P_Name { get; set; }
 
         [Required]
-        [StringLength(1000, MinimumLength = 10)]
+        [StringLength(1000, MinimumLength = 3)]
         [Display(Name = "Designation")]
         public string P_Designation { get; set; }
 
@@ -100,7 +100,7 @@ namespace GRB
         public int Id { get; set; }
 
         [Required]
-        [StringLength(1000, MinimumLength = 5)]
+        [StringLength(1000, MinimumLength = 3)]
         [Display(Name = "Mission")]
         public string Mission { get; set; }
 
@@ -109,6 +109,31 @@ namespace GRB
         [Display(Name = "Vision")]
         public string Vision { get; set; }
 
+    }
+
+    public class NewsMetadata
+    {
+        public int N_Id { get; set; }
+
+        [Required]
+        [StringLength(1000, MinimumLength = 3)]
+        [Display(Name = "Title")]
+        public string N_Title { get; set; }
+
+        [Required]
+        [StringLength(1000, MinimumLength = 10)]
+        [Display(Name = "Description")]
+        public string N_Desc { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date")]
+        public DateTime N_Date { get; set; }
+
+        [StringLength(1000, MinimumLength = 3)]
+        [Display(Name = "Status")]
+        public string N_Status { get; set; }
     }
 
     //public class GoaRbMetadata

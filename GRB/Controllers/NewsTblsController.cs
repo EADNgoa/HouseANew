@@ -46,13 +46,36 @@ namespace GRB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "N_Id,N_Title,N_Desc,N_Pic,N_Date")] NewsTbl newsTbl)
+        public ActionResult Create([Bind(Include = "N_Id,N_Title,N_Desc,N_Date,N_Status, UploadedFile")] NewsImg newsTbl)
         {
             if (ModelState.IsValid)
             {
-                db.NewsTbls.Add(newsTbl);
+
+                NewsTbl nt = new NewsTbl
+                {
+                    N_Id = newsTbl.N_Id,
+                    N_Title = newsTbl.N_Title,
+                    N_Desc = newsTbl.N_Desc,
+                    N_Date = newsTbl.N_Date,
+                    N_Status = newsTbl.N_Status
+                };
+
+                if(newsTbl.UploadedFile != null)
+                {
+                    string fn = newsTbl.UploadedFile.FileName.Substring(newsTbl.UploadedFile.FileName.LastIndexOf('\\') + 1);
+                    Random rd = new Random(DateTime.Today.Day);
+                    fn = rd.Next(300, 800) + "_" + fn;
+                    string SavePath = System.IO.Path.Combine(Server.MapPath("~/Uploads/Pictures/"), fn);
+                    newsTbl.UploadedFile.SaveAs(SavePath);
+                    nt.N_Pic = fn;
+                }
+
+                db.NewsTbls.Add(nt);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+                //db.NewsTbls.Add(newsTbl);
+                //db.SaveChanges();
+                //return RedirectToAction("Index");
             }
 
             return View(newsTbl);
@@ -66,11 +89,20 @@ namespace GRB.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             NewsTbl newsTbl = db.NewsTbls.Find(id);
+            ViewBag.ExistingImg = newsTbl.N_Pic;
             if (newsTbl == null)
             {
                 return HttpNotFound();
             }
-            return View(newsTbl);
+            NewsImg ViewInfo = new NewsImg
+            {
+                N_Id = newsTbl.N_Id,
+                N_Title = newsTbl.N_Title,
+                N_Desc = newsTbl.N_Desc,
+                N_Date = (DateTime)newsTbl.N_Date
+            };
+            ViewBag.ExistingFile = newsTbl.N_Pic;
+            return View(ViewInfo);
         }
 
         // POST: NewsTbls/Edit/5
@@ -78,7 +110,7 @@ namespace GRB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "N_Id,N_Title,N_Desc,N_Pic,N_Date")] NewsTbl newsTbl)
+        public ActionResult Edit([Bind(Include = "N_Id,N_Title,N_Desc,N_Pic,N_Date,N_Status")] NewsTbl newsTbl)
         {
             if (ModelState.IsValid)
             {

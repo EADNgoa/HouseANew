@@ -23,6 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.N_Date)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.N_Status)
+        </th>
         <th></th>
     </tr>
 
@@ -41,8 +44,11 @@
             @Html.DisplayFor(modelItem => item.N_Date)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.N_Status)
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.N_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.N_Id }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.N_Id }) |*@
             @Html.ActionLink("Delete", "Delete", new { id=item.N_Id })
         </td>
     </tr>

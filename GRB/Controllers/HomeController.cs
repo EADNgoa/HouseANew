@@ -13,9 +13,11 @@ namespace GRB.Controllers
         private GoaRehabEntities db = new GoaRehabEntities();
         public ActionResult Index()
         {
+            NewsTbl ntb = new NewsTbl();
             var id = 1;
+            var stst = "Active";
             ViewBag.res = db.GoaRehabTbls.Find(id);
-            return View();
+            return View(db.NewsTbls.Where(nt => nt.N_Status == stst).ToList());
         }
 
         public ActionResult InnerCircle()
@@ -26,9 +28,9 @@ namespace GRB.Controllers
         public ActionResult About()
         {
             var id = 1;
-            //GoaRehabTbl grb = db.GoaRehabTbls.Find(id);
+            ViewBag.info = db.GoaRehabTbls.Find(id);
             ViewBag.Message = "Your application description page."; 
-            return View(db.GoaRehabTbls.ToList());
+            return View();
         }
 
         public ActionResult ContactTech()

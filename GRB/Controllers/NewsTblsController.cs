@@ -110,11 +110,42 @@ namespace GRB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "N_Id,N_Title,N_Desc,N_Pic,N_Date,N_Status")] NewsTbl newsTbl)
+        public ActionResult Edit([Bind(Include = "N_Id,N_Title,N_Desc,N_Date,N_Status, UploadedFile")] NewsImg newsTbl, string N_Pic)
         {
+            //if (ModelState.IsValid)
+            //{
+            //    db.Entry(newsTbl).State = EntityState.Modified;
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
             if (ModelState.IsValid)
             {
-                db.Entry(newsTbl).State = EntityState.Modified;
+                string fn = "";
+
+                NewsTbl nt = new NewsTbl
+                {
+                    N_Id = newsTbl.N_Id,
+                    N_Title = newsTbl.N_Title,
+                    N_Desc = newsTbl.N_Desc,
+                    N_Date = newsTbl.N_Date,
+                    N_Status = newsTbl.N_Status
+                };
+
+                if (newsTbl.UploadedFile != null)
+                {
+                    fn = newsTbl.UploadedFile.FileName.Substring(newsTbl.UploadedFile.FileName.LastIndexOf('\\') + 1);
+                    Random rd = new Random(DateTime.Today.Day);
+                    fn = rd.Next(300, 800) + "_" + fn;
+                    string SavePath = System.IO.Path.Combine(Server.MapPath("~/Uploads/Pictures/"), fn);
+                    newsTbl.UploadedFile.SaveAs(SavePath);
+                    nt.N_Pic = fn;
+                }
+                else
+                {
+                    nt.N_Pic = N_Pic;
+                }
+
+                db.Entry(nt).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

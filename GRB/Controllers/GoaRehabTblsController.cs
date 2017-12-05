@@ -58,7 +58,21 @@ namespace GRB.Controllers
             return View(goaRehabTbl);
         }
 
-        // GET: GoaRehabTbls/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            id = 1;
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            GoaRehabTbl goaRehabTbl = db.GoaRehabTbls.Find(id);
+            if (goaRehabTbl == null)
+            {
+                return HttpNotFound();
+            }
+            return View(goaRehabTbl);
+        }
+ 
         public ActionResult EditMission(int? id)
         {
             id = 1;

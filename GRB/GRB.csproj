@@ -205,6 +205,7 @@
     <Compile Include="Controllers\PicturesTblsController.cs" />
     <Compile Include="Controllers\ProfileTblsController.cs" />
     <Compile Include="Controllers\ProjectsTblsController.cs" />
+    <Compile Include="Controllers\RtiTblsController.cs" />
     <Compile Include="Controllers\StaffTblsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -246,6 +247,9 @@
       <DependentUpon>GoaRehabModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProjectsTbl.cs">
+      <DependentUpon>GoaRehabModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RtiTbl.cs">
       <DependentUpon>GoaRehabModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StaffTbl.cs">
@@ -589,6 +593,14 @@
     <Content Include="Views\NewsTbls\Edit.cshtml" />
     <Content Include="Views\NewsTbls\Index.cshtml" />
     <Content Include="Views\GoaRehabTbls\Edit.cshtml" />
+    <Content Include="Views\RtiTbls\Create.cshtml" />
+    <Content Include="Views\RtiTbls\Delete.cshtml" />
+    <Content Include="Views\RtiTbls\Details.cshtml" />
+    <Content Include="Views\RtiTbls\Edit.cshtml" />
+    <Content Include="Views\RtiTbls\Index.cshtml" />
+    <Content Include="Views\RtiTbls\EditRti.cshtml" />
+    <Content Include="Views\RtiTbls\EditPIO.cshtml" />
+    <Content Include="Views\RtiTbls\EditAPIO.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

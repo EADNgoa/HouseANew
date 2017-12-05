@@ -74,5 +74,6 @@
     <Build Include="dbo\Tables\ProfileTbl.sql" />
     <Build Include="dbo\Tables\ProjectsTbl.sql" />
     <Build Include="dbo\Tables\StaffTbl.sql" />
+    <Build Include="dbo\Tables\RtiTbl.sql" />
   </ItemGroup>
 </Project>

@@ -67,6 +67,15 @@
           <Property Name="Proj_Pic" Type="varchar" MaxLength="50" />
           <Property Name="Proj_Status" Type="varchar" MaxLength="10" />
         </EntityType>
+        <EntityType Name="RtiTbl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="RTI" Type="varchar(max)" />
+          <Property Name="PIO" Type="varchar(max)" />
+          <Property Name="APIO" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="StaffTbl">
           <Key>
             <PropertyRef Name="S_Id" />
@@ -94,6 +103,7 @@
           <EntitySet Name="PicturesTbl" EntityType="Self.PicturesTbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProfileTbl" EntityType="Self.ProfileTbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProjectsTbl" EntityType="Self.ProjectsTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RtiTbl" EntityType="Self.RtiTbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StaffTbl" EntityType="Self.StaffTbl" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_InmatesTbl_ToProjectsTbl" Association="Self.FK_InmatesTbl_ToProjectsTbl">
             <End Role="ProjectsTbl" EntitySet="ProjectsTbl" />
@@ -116,6 +126,7 @@
             <End Role="ProjectsTbl" EntitySet="ProjectsTbls" />
             <End Role="InmatesTbl" EntitySet="InmatesTbls" />
           </AssociationSet>
+          <EntitySet Name="RtiTbls" EntityType="GoaRehabModel.RtiTbl" />
         </EntityContainer>
         <EntityType Name="GoaRehabTbl">
           <Key>
@@ -201,6 +212,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="RtiTbl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="RTI" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="APIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -281,6 +301,16 @@
                 <ScalarProperty Name="S_Responsibilities" ColumnName="S_Responsibilities" />
                 <ScalarProperty Name="S_Name" ColumnName="S_Name" />
                 <ScalarProperty Name="S_Id" ColumnName="S_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RtiTbls">
+            <EntityTypeMapping TypeName="GoaRehabModel.RtiTbl">
+              <MappingFragment StoreEntitySet="RtiTbl">
+                <ScalarProperty Name="APIO" ColumnName="APIO" />
+                <ScalarProperty Name="PIO" ColumnName="PIO" />
+                <ScalarProperty Name="RTI" ColumnName="RTI" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

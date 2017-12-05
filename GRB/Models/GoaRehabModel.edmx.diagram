@@ -13,6 +13,7 @@
         <EntityTypeShape EntityType="GoaRehabModel.ProjectsTbl" Width="1.5" PointX="0.75" PointY="0.875" />
         <EntityTypeShape EntityType="GoaRehabModel.StaffTbl" Width="1.5" PointX="6.75" PointY="3.75" />
         <AssociationConnector Association="GoaRehabModel.FK_InmatesTbl_ToProjectsTbl" />
+        <EntityTypeShape EntityType="GoaRehabModel.RtiTbl" Width="1.5" PointX="3.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

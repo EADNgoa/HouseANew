@@ -73,14 +73,9 @@ namespace GRB.Controllers
             return View(rtiTbl);
         }
 
-        public ActionResult EditRti(int? id)
-        {
-            id = 1;
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            RtiTbl rtiTbl = db.RtiTbls.Find(id);
+        public ActionResult EditRti()
+        {   
+            RtiTbl rtiTbl = db.RtiTbls.Find(1);
             if (rtiTbl == null)
             {
                 return HttpNotFound();
@@ -88,14 +83,9 @@ namespace GRB.Controllers
             return View(rtiTbl);
         }
 
-        public ActionResult EditPIO(int? id)
-        {
-            id = 1;
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            RtiTbl rtiTbl = db.RtiTbls.Find(id);
+        public ActionResult EditPIO()
+        {            
+            RtiTbl rtiTbl = db.RtiTbls.Find(1);
             if (rtiTbl == null)
             {
                 return HttpNotFound();
@@ -103,14 +93,9 @@ namespace GRB.Controllers
             return View(rtiTbl);
         }
 
-        public ActionResult EditAPIO(int? id)
+        public ActionResult EditAPIO()
         {
-            id = 1;
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            RtiTbl rtiTbl = db.RtiTbls.Find(id);
+            RtiTbl rtiTbl = db.RtiTbls.Find(1);
             if (rtiTbl == null)
             {
                 return HttpNotFound();

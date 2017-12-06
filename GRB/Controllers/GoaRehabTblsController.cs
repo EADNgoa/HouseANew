@@ -135,15 +135,18 @@ namespace GRB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Desc,Addr,Location,Ph_No")] GoaRehabTbl goaRehabTbl)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(goaRehabTbl).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(goaRehabTbl);
+        public ActionResult Edit([Bind(Include = "Id,Title,Desc,Addr,Location,Emails, Ph_No")] GoaRehabTbl goaRehabTbl)
+        {            
+            var existingRec = db.GoaRehabTbls.Find(1);
+            existingRec.Addr = goaRehabTbl.Addr;
+            existingRec.Desc = goaRehabTbl.Desc;
+            existingRec.Emails = goaRehabTbl.Emails;
+            existingRec.Ph_No = goaRehabTbl.Ph_No;
+            existingRec.Title = goaRehabTbl.Title;
+
+            db.Entry(existingRec).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("InnerCircle", "Home");
         }
 
         [HttpPost]

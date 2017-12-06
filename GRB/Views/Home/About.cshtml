@@ -1,6 +1,14 @@
-﻿@*@model GRB.Models.GoaRehabTbl*@
-@model IEnumerable<GRB.Models.GoaRehabTbl>
+﻿@model IEnumerable<GRB.Models.GoaRehabTbl>
 @using GRB.Models;
+
+<style>
+    #map {
+        width: 700px;
+        height: 400px;
+        background-color: grey;
+    }
+</style>
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "About";
@@ -15,16 +23,16 @@
     <div class="container">
         <h2>Goa Rehabilitation Centre</h2>
         <div class="row">
-            <div class="col-lg-6">
-                <label for="mis">Mission:</label>
+            <div class="col-lg-3">
+                <h2 for="mis">Mission:</h2>
                 <p id="mis">@info.Mission</p>
-                <label for="mis">Vision:</label>
+                <h2 for="mis">Vision:</h2>
                 <p id="mis">@info.Vision</p>
             </div>
-            <div class="col-lg-6">
-                <label for="map">Location</label>
-                <div class="container" id="map">
-                    <h2>Map Will come here</h2>
+            <div class="col-lg-9">                
+                <div>
+                    <h2>Our Location on the map</h2>
+                    <div id="map"></div>
                 </div>
             </div>
         </div>
@@ -67,3 +75,22 @@
         </div>
     </div>
 }
+@*Map by tonytartis*@
+<script>
+    function initMap() {
+         
+        var uluru = { lat: 15.496042, lng: 73.835268};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+            position: uluru,
+            
+          map: map
+        });
+      }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBowdOJ403ECyNEbvjLBZgdl-L4fIWKbh0&callback=initMap">
+</script>

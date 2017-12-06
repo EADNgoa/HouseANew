@@ -32,5 +32,6 @@ namespace GRB.Models
         public virtual DbSet<ProfileTbl> ProfileTbls { get; set; }
         public virtual DbSet<ProjectsTbl> ProjectsTbls { get; set; }
         public virtual DbSet<StaffTbl> StaffTbls { get; set; }
+        public virtual DbSet<RtiTbl> RtiTbls { get; set; }
     }
 }

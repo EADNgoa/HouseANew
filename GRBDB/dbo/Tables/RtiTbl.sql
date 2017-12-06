@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[RtiTbl]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [RTI] VARCHAR(MAX) NULL, 
+    [PIO] VARCHAR(MAX) NULL, 
+    [APIO] VARCHAR(MAX) NULL
+)

@@ -1,0 +1,42 @@
+﻿@model GRB.Models.RtiTbl
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RtiTbl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RTI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APIO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

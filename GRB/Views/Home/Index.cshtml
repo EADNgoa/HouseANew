@@ -98,7 +98,7 @@
         <h2 style="text-align:center;">Statutes</h2>
         <center>
             <p style="color:black; font-style:italic; font-family:'Times New Roman'; font-size:large">
-                <a href="~/Uploads/Documents/@res.Statutes" >To Download Click Here</a>
+                <a href="~/Uploads/Documents/@res.Statutes" target="_blank" >To Download Click Here</a>
             </p>
         </center>
     </div>
@@ -109,16 +109,15 @@
         <marquee direction="up" onmouseover="this.stop()" onmouseout="this.start()">
             @foreach (var item in Model)
             {
-                <div class="row">
+                <div class="row" style="padding:15px;">
                     @*<div class="col-md-2">*@
                     <center>
-                        <img src="/Uploads/Pictures/@Html.DisplayFor(modelItem => @item.N_Pic)" style="height:200px;width:300px" />
+                        <img src="/Uploads/Pictures/@Html.DisplayFor(modelItem => @item.N_Pic)" style="height:150px;" />                        
+                        <h3>@Html.DisplayFor(modelItem => @item.N_Title)</h3>
+                        <p style="color:black; font-family:'Times New Roman'; ">@Html.DisplayFor(modelItem => @item.N_Date)</p>                        
+                        <p style="color:black; font-family:'Times New Roman'; font-size:large">@Html.DisplayFor(modelItem => @item.N_Desc)</p>
                         <br />
-                        <h2>@Html.DisplayFor(modelItem => @item.N_Title)</h2>
-                        <p style="color:black; font-family:'Times New Roman'; font-size:24px">@Html.DisplayFor(modelItem => @item.N_Date)</p>
-                        <br />
-                        <p style="color:black; font-family:'Times New Roman'; font-size:x-large">@Html.DisplayFor(modelItem => @item.N_Desc)</p>
-                        <br />
+                        <hr />
                     </center>
                     @* </div>*@
                 </div>

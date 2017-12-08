@@ -63,9 +63,10 @@ pre {
 <a id="emblem" href="~/"><img src="~/Emblem.png" height=100px; alt="Nunes HR System" /> </a>
  */
 #emblem {
-    position: fixed;
+    position: absolute;
     right: 150px;
-    top: 15px;
+    top: 13px;    
+    z-index:8000;
     -webkit-filter: drop-shadow(5px 5px 15px bisque);
     filter: drop-shadow(5px 5px 5px bisque);
     -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=5, OffY=5, Color='bisque')";

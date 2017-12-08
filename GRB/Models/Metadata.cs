@@ -75,7 +75,7 @@ namespace GRB
         [Display(Name = "Designation")]
         public string P_Designation { get; set; }
 
-        [StringLength(1000, MinimumLength = 10)]
+        [StringLength(10000, MinimumLength = 10)]
         [Display(Name = "Description")]
         public string P_Desc { get; set; }
     }
@@ -90,7 +90,7 @@ namespace GRB
         public string S_Name { get; set; }
 
         [Required]
-        [StringLength(1000, MinimumLength = 3)]
+        [StringLength(10000, MinimumLength = 3)]
         [Display(Name = "Responsibility")]
         public string S_Responsibilities { get; set; }
     }
@@ -130,8 +130,7 @@ namespace GRB
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date")]
         public DateTime N_Date { get; set; }
-
-        [StringLength(1000, MinimumLength = 3)]
+                
         [Display(Name = "Status")]
         public string N_Status { get; set; }
     }

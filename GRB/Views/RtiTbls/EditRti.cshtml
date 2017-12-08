@@ -20,7 +20,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.RTI, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.RTI, new { @class = "form-control"})
+                @Html.TextAreaFor(model => model.RTI,10,10, new { @class = "form-control"})
                 @Html.ValidationMessageFor(model => model.RTI, "", new { @class = "text-danger" })
             </div>
         </div>

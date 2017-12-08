@@ -28,7 +28,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PIO, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.PIO, new { @class = "form-control"})
+                @Html.TextAreaFor(model => model.PIO,10,10, new { @class = "form-control"})
                 @Html.ValidationMessageFor(model => model.PIO, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -601,6 +601,9 @@
     <Content Include="Views\RtiTbls\EditRti.cshtml" />
     <Content Include="Views\RtiTbls\EditPIO.cshtml" />
     <Content Include="Views\RtiTbls\EditAPIO.cshtml" />
+    <Content Include="Views\RtiTbls\RtiView.cshtml" />
+    <Content Include="Views\RtiTbls\PioView.cshtml" />
+    <Content Include="Views\RtiTbls\ApioView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

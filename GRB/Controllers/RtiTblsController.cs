@@ -20,6 +20,27 @@ namespace GRB.Controllers
             return View(db.RtiTbls.ToList());
         }
 
+        public ActionResult RtiView()
+        {
+            var id = 1;
+            ViewBag.info = db.RtiTbls.Find(id);
+            return View(db.RtiTbls.ToList());
+        }
+
+        public ActionResult PioView()
+        {
+            var id = 1;
+            ViewBag.info = db.RtiTbls.Find(id);
+            return View(db.RtiTbls.ToList());
+        }
+
+        public ActionResult ApioView()
+        {
+            var id = 1;
+            ViewBag.info = db.RtiTbls.Find(id);
+            return View(db.RtiTbls.ToList());
+        }
+
         // GET: RtiTbls/Details/5
         public ActionResult Details(int? id)
         {

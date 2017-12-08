@@ -1,0 +1,23 @@
+﻿@model IEnumerable<GRB.Models.RtiTbl>
+@using GRB.Models;
+
+@{
+                /**/
+
+                ViewBag.Title = "PioView";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+                var info = (RtiTbl)ViewBag.info;
+}
+
+<h2>PIO(Public Information Officer)</h2>
+
+@using (Html.BeginForm())
+{
+<div class="container">
+    <div class="row">
+        <div class="container-fluid">
+            <div style="white-space: pre-wrap;">@info.PIO</div>
+        </div>
+    </div>
+</div>
+}

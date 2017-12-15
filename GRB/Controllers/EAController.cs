@@ -8,6 +8,7 @@ using GRB.Models;
 namespace GRB.Controllers
 {
     [HandleError]
+    [Authorize]
     public class EAController : Controller
     {
         protected GoaRehabEntities db;
@@ -17,15 +18,15 @@ namespace GRB.Controllers
         }
 
         // GET: EA
-        protected override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            if (DateTime.Now.Date > DateTime.Parse("15 Aug 2017"))
-            {                
-                filterContext.Result = new RedirectResult("~/Home/pli");
-                return;
-            }
+        //protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        //{
+        //    if (DateTime.Now.Date > DateTime.Parse("15 Aug 2017"))
+        //    {                
+        //        filterContext.Result = new RedirectResult("~/Home/pli");
+        //        return;
+        //    }
             
-        }
+        //}
 
         protected override void OnException(ExceptionContext filterContext)
         {

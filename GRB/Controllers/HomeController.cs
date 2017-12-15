@@ -11,6 +11,8 @@ namespace GRB.Controllers
     public class HomeController : Controller
     {
         private GoaRehabEntities db = new GoaRehabEntities();
+
+        [AllowAnonymous]
         public ActionResult Index()
         {
             NewsTbl ntb = new NewsTbl();
@@ -25,6 +27,7 @@ namespace GRB.Controllers
             return View();
         }
 
+        
         public ActionResult About()
         {
             var id = 1;
@@ -32,6 +35,7 @@ namespace GRB.Controllers
             ViewBag.Message = "Your application description page."; 
             return View();
         }
+
 
         public ActionResult ContactTech()
         {

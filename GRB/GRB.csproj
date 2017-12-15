@@ -464,6 +464,7 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="obj\Debug\GRB.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\GRB.dll" />
@@ -497,11 +498,9 @@
     <Content Include="Uploads\Pictures\Carousel\Carousel6.JPG" />
     <Content Include="Uploads\Pictures\Carousel\carousel7.jpg" />
     <Content Include="Uploads\Pictures\Goa-BG.jpg" />
-    <Content Include="Uploads\Pictures\Goa-featured.jpg" />
     <Content Include="Uploads\Pictures\goa-logo.jpg" />
     <Content Include="Uploads\Pictures\goa-logo1.gif" />
     <Content Include="Uploads\Pictures\goa-logo1.jpg" />
-    <Content Include="Uploads\Pictures\goarehab.jpg" />
     <Content Include="Uploads\Pictures\img-bricks.jpg" />
     <Content Include="Uploads\Pictures\Profiles\409_CM.jpg" />
     <Content Include="Uploads\Pictures\Profiles\Chairman.jpg" />

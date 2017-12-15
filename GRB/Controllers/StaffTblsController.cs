@@ -10,9 +10,9 @@ using GRB.Models;
 
 namespace GRB.Controllers
 {
-    public class StaffTblsController : Controller
+    public class StaffTblsController : EAController
     {
-        private GoaRehabEntities db = new GoaRehabEntities();
+        
 
         // GET: StaffTbls
         public ActionResult Index()
@@ -58,6 +58,7 @@ namespace GRB.Controllers
             return View(staffTbl);
         }
 
+        [AllowAnonymous]
         public ActionResult StaffList(int? id)
         {
             if (id != null)

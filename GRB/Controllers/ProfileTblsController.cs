@@ -11,9 +11,8 @@ using System.IO;
 
 namespace GRB.Controllers
 {
-    public class ProfileTblsController : Controller
-    {
-        private GoaRehabEntities db = new GoaRehabEntities();
+    public class ProfileTblsController : EAController
+    {        
 
         // GET: ProfileTbls
         public ActionResult Index()
@@ -86,6 +85,7 @@ namespace GRB.Controllers
             return View(profileTbl);
         }
 
+        [AllowAnonymous]
         public ActionResult ProfilesList(int? id)
         {
             if(id != null)

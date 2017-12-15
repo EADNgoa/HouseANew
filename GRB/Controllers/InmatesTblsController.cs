@@ -8,9 +8,9 @@ using System.Web.Mvc;
 
 namespace GRB.Controllers
 {
-    public class InmatesTblsController : Controller
+    public class InmatesTblsController : EAController
     {
-        private GoaRehabEntities db = new GoaRehabEntities();
+        
 
         // GET: InmatesTbls
         public ActionResult Index(int? page, string PropName)
@@ -29,6 +29,7 @@ namespace GRB.Controllers
             return View(inmatesTbls.OrderBy(i=> i.In_Name).ToPagedList(pageNumber, pageSize));
         }
 
+        [AllowAnonymous]
         public ActionResult InmatesList(int? page, int ProjId=1)
         {
             var inmatesTbls = db.InmatesTbls.Include(i => i.ProjectsTbl);

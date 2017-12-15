@@ -11,9 +11,9 @@ using System.IO;
 
 namespace GRB.Controllers
 {
-    public class PicturesTblsController : Controller
+    public class PicturesTblsController : EAController
     {
-        private GoaRehabEntities db = new GoaRehabEntities();
+        
 
         // GET: PicturesTbls
         public ActionResult Index()

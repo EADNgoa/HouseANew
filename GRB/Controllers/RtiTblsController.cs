@@ -10,16 +10,16 @@ using GRB.Models;
 
 namespace GRB.Controllers
 {
-    public class RtiTblsController : Controller
+    public class RtiTblsController : EAController
     {
-        private GoaRehabEntities db = new GoaRehabEntities();
-
+        
         // GET: RtiTbls
         public ActionResult Index()
         {
             return View(db.RtiTbls.ToList());
         }
 
+        [AllowAnonymous]
         public ActionResult RtiView()
         {
             var id = 1;
@@ -27,6 +27,7 @@ namespace GRB.Controllers
             return View(db.RtiTbls.ToList());
         }
 
+        [AllowAnonymous]
         public ActionResult PioView()
         {
             var id = 1;
@@ -34,6 +35,7 @@ namespace GRB.Controllers
             return View(db.RtiTbls.ToList());
         }
 
+        [AllowAnonymous]
         public ActionResult ApioView()
         {
             var id = 1;

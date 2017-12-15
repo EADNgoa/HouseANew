@@ -10,9 +10,9 @@ using GRB.Models;
 
 namespace GRB.Controllers
 {
-    public class ProjectsTblsController : Controller
+    public class ProjectsTblsController : EAController
     {
-        private GoaRehabEntities db = new GoaRehabEntities();
+        
 
         // GET: ProjectsTbls
         public ActionResult Index()

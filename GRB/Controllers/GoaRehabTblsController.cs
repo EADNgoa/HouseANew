@@ -10,9 +10,9 @@ using GRB.Models;
 
 namespace GRB.Controllers
 {
-    public class GoaRehabTblsController : Controller
+    public class GoaRehabTblsController : EAController
     {
-        private GoaRehabEntities db = new GoaRehabEntities();
+        
 
         // GET: GoaRehabTbls
         public ActionResult Index()
@@ -41,39 +41,39 @@ namespace GRB.Controllers
             return View();
         }
 
-        // POST: GoaRehabTbls/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Desc,Addr,Mission,Vision,Location,Ph_No,File_Name")] GoaRehabTbl goaRehabTbl)
-        {
-            if (ModelState.IsValid)
-            {
-                db.GoaRehabTbls.Add(goaRehabTbl);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+        
 
-            return View(goaRehabTbl);
+        public ActionResult EditRti()
+        {   
+            RtiTbl rtiTbl = db.RtiTbls.Find(1);
+             if (rtiTbl == null)
+             {
+                 return HttpNotFound();
+             }
+             return View(rtiTbl);
+    }
+
+        public ActionResult EditPIO()
+         {            
+             RtiTbl rtiTbl = db.RtiTbls.Find(1);
+              if (rtiTbl == null)
+              {
+                  return HttpNotFound();
+                }
+              return View(rtiTbl);
         }
 
-        public ActionResult Edit(int? id)
+        public ActionResult EditAPIO()
         {
-            id = 1;
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            GoaRehabTbl goaRehabTbl = db.GoaRehabTbls.Find(id);
-            if (goaRehabTbl == null)
+            RtiTbl rtiTbl = db.RtiTbls.Find(1);
+            if (rtiTbl == null)
             {
                 return HttpNotFound();
             }
-            return View(goaRehabTbl);
+            return View(rtiTbl);
         }
- 
-        public ActionResult EditMission(int? id)
+
+public ActionResult EditMission(int? id)
         {
             id = 1;
             GoaRehabTbl goaRehabTbl = db.GoaRehabTbls.Find(id);
@@ -130,6 +130,11 @@ namespace GRB.Controllers
             return View(ViewInfo);
         }
 
+        public ActionResult Edit()
+        {
+            return View(db.GoaRehabTbls.FirstOrDefault());
+        }
+        
         // POST: GoaRehabTbls/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.

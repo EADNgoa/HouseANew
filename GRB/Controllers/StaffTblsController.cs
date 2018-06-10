@@ -61,15 +61,11 @@ namespace GRB.Controllers
         [AllowAnonymous]
         public ActionResult StaffList(int? id)
         {
-            if (id != null)
-            {
-                ViewBag.results = db.StaffTbls.Find(id);
-            }
-            else
-            {
-                id = 1;
-                ViewBag.results = db.StaffTbls.Find(id);
-            }
+            if (id != null)            
+                ViewBag.results = db.StaffTbls.Find(id);            
+            else                
+                ViewBag.results = db.StaffTbls.FirstOrDefault();
+            
             return View(db.StaffTbls.ToList());
         }
 

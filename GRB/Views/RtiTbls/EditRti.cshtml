@@ -5,6 +5,14 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+<style>
+    .jqte a {
+        background-color: #EEE !important;
+        padding: 3px 4px !important;      
+        margin:3px;
+        border-bottom: #BBB 1px solid !important;
+    }
+</style>
 <h2>Edit</h2>
 
 @using (Html.BeginForm())
@@ -17,32 +25,18 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.RTI, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+        <div class="form-group" id="Uploads">
+            @Html.LabelFor(model => model.RTI, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-11">
                 @Html.TextAreaFor(model => model.RTI,10,10, new { @class = "form-control"})
                 @Html.ValidationMessageFor(model => model.RTI, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.PIO, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PIO, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PIO, "", new { @class = "text-danger" })
-            </div>
-        </div>
+   
 
         <div class="form-group">
-            @Html.LabelFor(model => model.APIO, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.APIO, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.APIO, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-offset-1 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
@@ -52,3 +46,9 @@
 @*<div>
     @Html.ActionLink("Back to List", "Index")
 </div>*@
+
+<script>
+    $(function () {
+        $("textarea").jqte();
+    })
+</script>

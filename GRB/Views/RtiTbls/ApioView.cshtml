@@ -1,10 +1,10 @@
-﻿@model IEnumerable<GRB.Models.RtiTbl>
-@using GRB.Models;
+﻿@model GRB.Models.RtiTbl
+
 
 @{
     ViewBag.Title = "ApioView";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var info = (RtiTbl)ViewBag.info;
+    
 }
 
 <h2>APIO(Assistant Public Information Officer)</h2>
@@ -14,7 +14,7 @@
 <div class="container">
     <div class="row">
         <div class="container-fluid">
-            <div style="white-space: pre-wrap;padding-right: 70px;">@info.APIO</div>
+            <div style="padding-right: 70px;">@Html.Raw(Model.APIO)</div>
         </div>
     </div>
 </div>

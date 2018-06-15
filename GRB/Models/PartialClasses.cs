@@ -75,7 +75,10 @@ namespace GRB.Models
         public HttpPostedFileBase UploadedFile { get; set; }
     }
 
-    public enum status
+    [MetadataType(typeof(RtiTblMetadata))]
+    public partial class RtiTbl { }
+
+        public enum status
     {
         Activated,
         Deactivated

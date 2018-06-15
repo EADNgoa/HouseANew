@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -12,6 +13,30 @@ namespace GRB.Controllers
 {
     public class RtiTblsController : EAController
     {
+        public ActionResult Upload()
+        {
+            return View("Edit");
+        }
+
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase file)
+        {
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+                    string successFile;
+                    successFile= SaveImage(Path.GetFileName(file.FileName), "Rti", 1, file);
+                    ViewBag.Message = successFile+" upload successful. Upload another document?";
+                }
+                    return View("Edit");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = "Upload failed with error:" + ex.Message;
+                return View("Edit");
+            }
+        }
         
         // GET: RtiTbls
         public ActionResult Index()
@@ -22,25 +47,19 @@ namespace GRB.Controllers
         [AllowAnonymous]
         public ActionResult RtiView()
         {
-            var id = 1;
-            ViewBag.info = db.RtiTbls.Find(id);
-            return View(db.RtiTbls.ToList());
+            return View(db.RtiTbls.Find(1));
         }
 
         [AllowAnonymous]
         public ActionResult PioView()
         {
-            var id = 1;
-            ViewBag.info = db.RtiTbls.Find(id);
-            return View(db.RtiTbls.ToList());
+            return View(db.RtiTbls.Find(1));
         }
 
         [AllowAnonymous]
         public ActionResult ApioView()
         {
-            var id = 1;
-            ViewBag.info = db.RtiTbls.Find(id);
-            return View(db.RtiTbls.ToList());
+            return View(db.RtiTbls.Find(1));
         }
 
         // GET: RtiTbls/Details/5
@@ -153,7 +172,8 @@ namespace GRB.Controllers
             //}
             var existingRec = db.RtiTbls.Find(1);
 
-            existingRec.RTI = rtiTbl.RTI;
+            existingRec.RTI = rtiTbl.RTI.Replace("href=\"", "href=\"/Uploads/");
+            existingRec.RTI = rtiTbl.RTI.Replace("/Uploads//Uploads/", "/Uploads/");
 
             db.Entry(existingRec).State = EntityState.Modified;
             db.SaveChanges();

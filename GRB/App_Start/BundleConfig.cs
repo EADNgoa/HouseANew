@@ -24,9 +24,12 @@ namespace GRB
                       "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                      "~/Scripts/jquery-ui-{version}.js"));
+                      "~/Scripts/jquery-ui-{version}.js",
+                    "~/Scripts/jquery-te-1.4.0.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
-                        "~/Content/themes/base/all.css"));
+                        "~/Content/themes/base/all.css",
+                    "~/Content/jquery-te-1.4.0.css"));
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
